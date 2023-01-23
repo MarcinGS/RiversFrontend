@@ -1,0 +1,25 @@
+@import '../../../variables.scss';
+
+:host{
+    display: flex;
+    flex-direction: column;
+}
+
+.riverImage{
+    margin-right: 10px;
+}
+
+.riverLevel{
+   font-size: 30px;
+   font-weight: 500; 
+   margin-top: 20px;
+   color: $accent;
+}
+
+.riverContent{
+    font-size: 16px;
+}
+
+mat-card{
+    margin-bottom: 10px;
+}
