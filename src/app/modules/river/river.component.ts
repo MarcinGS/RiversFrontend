@@ -18,7 +18,8 @@ export class RiverComponent implements OnInit {
   }
 
   getRivers(){
-    this.rivers = this.riverService.getRivers();
+    this.riverService.getRivers()
+      .subscribe(rivers => this.rivers = rivers);
   }
 
 }
