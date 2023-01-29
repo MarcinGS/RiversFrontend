@@ -8,10 +8,14 @@ import { AdminRiver } from './model/adminRiver';
   providedIn: 'root'
 })
 export class AdminRiverService {
-
+  
   constructor(private http: HttpClient) { }
-
+  
   getRivers(page: number, size: number): Observable<Page<AdminRiver>>{
     return this.http.get<Page<AdminRiver>>(`/api/admin/rivers?page=${page}&size=${size}`);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>("/api/admin/rivers/" + id);
   }
 }

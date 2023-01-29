@@ -1,4 +1,5 @@
 export interface AdminRiver {
+    id: number,
     stationId: string,
     stationName: string,
     riverName: string,

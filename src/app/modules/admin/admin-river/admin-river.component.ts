@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTable } from '@angular/material/table';
 import { delay, startWith, switchMap } from 'rxjs';
+import { AdminConfirmDialogService } from '../admin-confirm-dialog.service';
 import { AdminRiverService } from './admin-river.service';
 import { AdminRiver } from './model/adminRiver';
 
@@ -10,11 +12,12 @@ import { AdminRiver } from './model/adminRiver';
   styleUrls: ['./admin-river.component.scss']
 })
 export class AdminRiverComponent implements AfterViewInit {
-
- @ViewChild(MatPaginator) paginator!: MatPaginator;
- totalElements: number = 0;
- dataSource: AdminRiver[] = [];
-
+  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatTable) table!: MatTable<any>;
+  totalElements: number = 0;
+  dataSource: AdminRiver[] = [];
+  
   displayedColumns: string[] =[
     "stationId",
     "riverName",
@@ -22,7 +25,9 @@ export class AdminRiverComponent implements AfterViewInit {
     "region",
     "actions"
   ];
-  constructor(private adminRiverService: AdminRiverService) { }
+  constructor(
+    private adminRiverService: AdminRiverService,
+    private adminConfirmDialogService: AdminConfirmDialogService) { }
   
   ngAfterViewInit(): void {
     this.paginator.page.pipe(
@@ -34,6 +39,23 @@ export class AdminRiverComponent implements AfterViewInit {
           this.totalElements = data.totalElements;
           this.dataSource = data.content;
       });
+    }
+    
+    confirmDelete(element: AdminRiver) {
+      this.adminConfirmDialogService.openConfirmDialog("Czy na pewno chcesz usunąć tą pozycje?")
+      .afterClosed()
+      .subscribe(result => {
+        if(result){
+          this.adminRiverService.delete(element.id)
+          .subscribe(() => {
+            this.dataSource.forEach((value, index) =>{
+              if(element == value){
+                this.dataSource.splice(index, 1);
+                this.table.renderRows();
+              }
+            })
+          });
+        }
+      });
+    }
   }
-
-}
