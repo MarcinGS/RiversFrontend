@@ -1,0 +1,86 @@
+<div>
+  <div class="warn-header">
+    <h1>Edycja pozycji w bazie danych</h1>
+  </div>
+  <div class="warning">
+    <h4>Uwaga: Edycja i zapisanie danych w tych polach spowoduje zmiany dla wszystkich użytkowników systemu!</h4>
+  </div>
+</div>
+
+<form fxLayout="column" [formGroup]="riverForm" (submit)="submit()">
+  <div fxLayoutGap="10" >
+    <mat-form-field appearance="outline">
+      <mat-label>Id stacji</mat-label>
+      <input matInput placeholder="Podaj id stacji" formControlName="stationId">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nazwa stacji</mat-label>
+      <input matInput placeholder="Podaj nazwe stacji" formControlName="stationName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nazwa</mat-label>
+      <input matInput placeholder="Podaj nazwe rzeki" formControlName="riverName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Województwo</mat-label>
+      <input matInput placeholder="Podaj nazwe województwa" formControlName="region">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <div fxLayoutGap="10">
+      <mat-form-field>
+        <mat-label>Poziom wody</mat-label>
+        <input matInput placeholder="Poziom wody" formControlName="waterLevel">
+      </mat-form-field>
+
+      <mat-form-field fxFlex="25">
+        <mat-label>Data pomiaru</mat-label>
+        <input matInput placeholder="Data pomiaru poziomu wody" formControlName="waterDate">
+      </mat-form-field>
+    </div>
+
+    <div fxLayoutGap="10">
+      <mat-form-field>
+        <mat-label>Temperatura wody</mat-label>
+        <input matInput placeholder="Temperatura wody" formControlName="waterTemp">
+      </mat-form-field>
+
+      <mat-form-field fxFlex="25">
+        <mat-label>Data pomiaru</mat-label>
+        <input matInput placeholder="Data pomiaru temperatury wody" formControlName="tempDate">
+      </mat-form-field>
+    </div>
+
+    <div fxLayoutGap="10">
+      <mat-form-field>
+        <mat-label>Zjawisko lodowe</mat-label>
+        <input matInput placeholder="Poziom zjawiska lodowego" formControlName="iceLevel">
+      </mat-form-field>
+
+      <mat-form-field fxFlex="25">
+        <mat-label>Data pomiaru</mat-label>
+        <input matInput placeholder="Data pomiaru zjawiska lodowego" formControlName="iceDate">
+      </mat-form-field>
+    </div>
+
+    <div fxLayoutGap="10">
+      <mat-form-field>
+        <mat-label>Zjawisko zarastania</mat-label>
+        <input matInput placeholder="Poziom zjawiska zarastania" formControlName="growLevel">
+      </mat-form-field>
+
+      <mat-form-field fxFlex="25">
+        <mat-label>Data zarastania</mat-label>
+        <input matInput placeholder="Data pomiaru zjawiska zarastania" formControlName="growDate">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayoutAlign="end">
+    <button mat-flat-button color="primary">Zapisz</button>
+  </div>
+</form>
