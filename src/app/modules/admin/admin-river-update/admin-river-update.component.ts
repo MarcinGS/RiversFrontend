@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { AdminRiverUpdateService } from './admin-river-update.service';
@@ -25,17 +25,17 @@ export class AdminRiverUpdateComponent implements OnInit {
     this.getRiver();
 
     this.riverForm = this.formBuilder.group({
-      stationId: [''],
-      stationName: [''],
-      riverName: [''],
-      region: [''],
+      stationId: ['', Validators.required],
+      stationName: ['', Validators.required],
+      riverName: ['', Validators.required],
+      region: ['', Validators.required],
       waterLevel: [''],
       waterDate: [''],
       waterTemp: [''],
       tempDate: [''],
-      iceLevel: [''],
+      iceLevel: ['', Validators.min(0)],
       iceDate: [''],
-      growLevel: [''],
+      growLevel: ['', Validators.min(0)],
       growDate: ['']
     })
   }

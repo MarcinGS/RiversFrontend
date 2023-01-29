@@ -8,16 +8,17 @@ import { MaterialModule } from 'src/app/shared/material.module';
 import { AdminRiverComponent } from 'src/app/modules/admin/admin-river/admin-river.component';
 import { AdminRiverUpdateComponent } from 'src/app/modules/admin/admin-river-update/admin-river-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
+import { AdminRiverAddComponent } from 'src/app/modules/admin/admin-river-add/admin-river-add.component';
+import { AdminRiverFormComponent } from 'src/app/modules/admin/admin-river-form/admin-river-form.component';
 
 @NgModule({
   declarations: [
     FullpageadminComponent,
     AdminComponent,
     AdminRiverComponent,
-    AdminRiverUpdateComponent
+    AdminRiverUpdateComponent,
+    AdminRiverAddComponent,
+    AdminRiverFormComponent
   ],
   imports: [
     CommonModule,

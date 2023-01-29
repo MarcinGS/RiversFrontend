@@ -1,0 +1,10 @@
+@import '../../../../variables.scss';
+
+.warning{
+    font-weight: bold;
+    color: $warn;
+}
+
+.warn-header{
+    color: $primary;
+}

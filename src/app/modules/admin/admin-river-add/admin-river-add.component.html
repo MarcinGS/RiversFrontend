@@ -1,0 +1,18 @@
+<div fxLayout="column">
+    <div class="warn-header">
+        <h1>Dodawanie pozycji do bazy danych</h1>
+    </div>
+    <div fxLayout="row" class="warning" fxLayoutGap="5">
+        <div>
+            <mat-icon>warning</mat-icon>
+        </div>
+        <div>
+            <h4>Uwaga: Ręczne dodawanie pozycji do bazy może spowodować problemy z integralnością. Należy stosować tylko
+                w uzasadnionych potrzebach.</h4>
+        </div>
+    </div>
+</div>
+
+<form fxLayout="column" [formGroup]="riverForm" (submit)="submit()">
+    <app-admin-river-form [parentForm]="riverForm"></app-admin-river-form>
+</form>
