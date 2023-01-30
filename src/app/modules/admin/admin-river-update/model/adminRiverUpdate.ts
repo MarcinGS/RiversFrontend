@@ -1,6 +1,6 @@
 export interface AdminRiverUpdate{
     id: number,
-    stationId: string,
+    stationId: number,
     stationName: string,
     riverName: string,
     region: string,
@@ -11,5 +11,6 @@ export interface AdminRiverUpdate{
     iceLevel: string,
     iceDate: string,
     growLevel: string,
-    growDate: string
+    growDate: string,
+    image: string
 }

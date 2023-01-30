@@ -15,3 +15,10 @@
 <form fxLayout="column" [formGroup]="riverForm" (submit)="submit()">
   <app-admin-river-form [parentForm]="riverForm"></app-admin-river-form>
 </form>
+
+<img *ngIf="image" src="{{'/api/data/riverImage/' + image}}" width="250">
+
+<form [formGroup]="imageForm" (submit)="uploadFile()">
+  <input type="file" [accept]="requiredFileTypes" (change)="onFileChange($event)">
+  <button mat-flat-button color="accent">Upload</button>
+</form>

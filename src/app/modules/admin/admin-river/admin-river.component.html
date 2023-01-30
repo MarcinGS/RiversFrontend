@@ -44,7 +44,7 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  <mat-spinner></mat-spinner>
+
 </table>
 
 <mat-paginator [pageSizeOptions]="[5, 10, 25]" [pageSize]="25" showFirstLastButtons [length]="totalElements">

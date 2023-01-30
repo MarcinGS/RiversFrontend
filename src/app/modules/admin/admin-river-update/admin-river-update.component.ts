@@ -14,6 +14,9 @@ export class AdminRiverUpdateComponent implements OnInit {
   
   river!: AdminRiverUpdate;
   riverForm!: FormGroup;
+  requiredFileTypes = "image/jpeg, image/png";
+  imageForm!: FormGroup;
+  image: string | null = null;
   
   constructor(
     private router: ActivatedRoute,
@@ -37,8 +40,12 @@ export class AdminRiverUpdateComponent implements OnInit {
       iceDate: [''],
       growLevel: ['', Validators.min(0)],
       growDate: ['']
-    })
-  }
+    }); 
+
+    this.imageForm = this.formBuilder.group({
+      file: ['']
+    });
+  } 
   
   getRiver(){
     let id = Number(this.router.snapshot.params['id']);
@@ -48,14 +55,43 @@ export class AdminRiverUpdateComponent implements OnInit {
   
   submit() {
     let id = Number(this.router.snapshot.params['id']);
-    this.adminRiverUpdateService.savePost(id, this.riverForm.value).subscribe(river => {
+    this.adminRiverUpdateService.savePost(id, {
+      stationId: this.riverForm.get('stationId')?.value,
+      stationName: this.riverForm.get('stationName')?.value,
+      riverName: this.riverForm.get('riverName')?.value,
+      region: this.riverForm.get('region')?.value,
+      waterLevel: this.riverForm.get('waterLevel')?.value,
+      waterDate: this.riverForm.get('waterDate')?.value,
+      waterTemp: this.riverForm.get('waterTemp')?.value,
+      tempDate: this.riverForm.get('tempDate')?.value,
+      iceLevel: this.riverForm.get('iceLevel')?.value,
+      iceDate: this.riverForm.get('iceDate')?.value,
+      growLevel: this.riverForm.get('growLevel')?.value,
+      growDate: this.riverForm.get('growDate')?.value,
+      image: this.image
+    } as AdminRiverUpdate).subscribe(river => {
       this.mapFormValues(river);
       this.snackBar.open("Dane zostały zapisane","", {duration: 3000});
     });
   }
 
+  uploadFile(){
+    let formData = new FormData();
+    formData.append('file', this.imageForm.get('file')?.value);
+    this.adminRiverUpdateService.uploadImage(formData)
+      .subscribe(result => this.image = result.filename);
+  }
+
+  onFileChange(event: any){
+    if(event.target.files.length > 0){
+      this.imageForm.patchValue({
+        file: event.target.files[0]
+      });
+    }
+  }
+
   private mapFormValues(river: AdminRiverUpdate): void {
-    return this.riverForm.setValue({
+    this.riverForm.setValue({
       stationId: river.stationId,
       stationName: river.stationName,
       riverName: river.riverName,
@@ -69,5 +105,6 @@ export class AdminRiverUpdateComponent implements OnInit {
       growLevel: river.growLevel,
       growDate: river.growDate
     });
+    this.image = river.image;
   }
 }
