@@ -6,6 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
+import {MatTabsModule} from '@angular/material/tabs'; 
 @NgModule({
   declarations: [
     FooterComponent,
@@ -16,13 +17,15 @@ import { MaterialModule } from './material.module';
     CommonModule,
     RouterModule,
     FlexModule,
-    MaterialModule
+    MaterialModule,
+    MatTabsModule
   ],
   exports: [
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-    MaterialModule
+    MaterialModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { }

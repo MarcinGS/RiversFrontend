@@ -6,6 +6,7 @@ import { RiverComponent } from 'src/app/modules/river/river.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RiverDetailsComponent } from 'src/app/modules/river-details/river-details.component';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     DefaultComponent,
     HomeComponent,
-    RiverComponent
+    RiverComponent,
+    RiverDetailsComponent
   ],
   imports: [
     CommonModule,

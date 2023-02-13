@@ -1,4 +1,4 @@
-export interface River{
+export interface RiverDetails{
     stationId: string,
     stationName: string,
     riverName: string,
@@ -11,5 +11,6 @@ export interface River{
     iceDate: string,
     growLevel: string,
     growDate: string,
+    note: string,
     image: string
 }

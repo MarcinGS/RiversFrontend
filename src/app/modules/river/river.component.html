@@ -1,27 +1,26 @@
 <h1>Rzeki</h1>
 <mat-card *ngFor="let river of page?.content">
-    <div flexLayout="row">
-      <div flexLayout="column" fxFlex>
-        <mat-card-title>{{river.riverName}}</mat-card-title>
-        <mat-card-subtitle>{{river.region | titlecase}}</mat-card-subtitle>
-        <div flexLayout="row">
-          <img src="../../../assets/image-placeholder.png" mat-card-sm-image class="riverImage">
-          <mat-card-content fxFlex class="riverContent">Stacja: {{river.stationName}}</mat-card-content>
-        </div>
-      </div>
-      <div>
-        <div class="riverLevel">{{river.waterLevel}} cm</div>
+  <div flexLayout="row">
+    <div flexLayout="column" fxFlex>
+      <mat-card-title><a routerLink="{{'/rivers/' + river.stationId}}">{{river.riverName}}</a></mat-card-title>
+      <mat-card-subtitle>{{river.region | titlecase}}</mat-card-subtitle>
+      <div flexLayout="row">
+        <a routerLink="{{'/rivers/' + river.stationId}}">
+          <img *ngIf="!river?.image" src="../../../assets/image-placeholder.png" mat-card-sm-image class="riverImage">
+          <img *ngIf="river?.image" src="{{'/api/data/riverImage/'+river?.image}}" mat-card-sm-image class="riverImage">
+        </a>
+        <mat-card-content fxFlex class="riverContent">Stacja: {{river.stationName}}</mat-card-content>
       </div>
     </div>
-    <mat-card-actions align="end" fxLayoutGap="10">
-      <button mat-flat-button color="primary">Pokaż</button>
-      <button mat-flat-button color="accent">Dodaj do listy</button>
-    </mat-card-actions>
-  </mat-card> 
-  <mat-paginator *ngIf="page && page.totalElements > 0"
-              [length]="page.totalElements"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 50]"
-              aria-label="Select page"
-              (page)="onPageEvent($event)"> 
+    <div>
+      <div class="riverLevel">{{river.waterLevel}} cm</div>
+    </div>
+  </div>
+  <mat-card-actions align="end" fxLayoutGap="10">
+    <button mat-flat-button color="primary" routerLink="{{'/rivers/' + river.stationId}}">Pokaż</button>
+    <button mat-flat-button color="accent">Dodaj do listy</button>
+  </mat-card-actions>
+</mat-card>
+<mat-paginator *ngIf="page && page.totalElements > 0" [length]="page.totalElements" [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page" (page)="onPageEvent($event)">
 </mat-paginator>
