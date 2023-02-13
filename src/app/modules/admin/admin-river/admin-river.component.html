@@ -1,12 +1,23 @@
-<div  fxLayoutGap="15" fxLayout="row">
+<div fxLayoutGap="15" fxLayout="row">
   <div class="listHeader">
     <h1>Lista rzek</h1>
   </div>
   <div>
-    <button mat-raised-button color="accent" routerLink="/admin/rivers/add">Dodaj rzekę <mat-icon>add</mat-icon></button>
-  </div> 
+    <button mat-raised-button color="accent" routerLink="/admin/rivers/add">Dodaj rzekę
+      <mat-icon>add</mat-icon></button>
+  </div>
 </div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef> Obraz </th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink="{{'/admin/rivers/update/' + element.stationId}}">
+        <img *ngIf="!element?.image" src="../../../../assets/image-placeholder.png" mat-cart-lg-image width="150" >
+        <img *ngIf="element?.image" src="{{'/api/data/riverImage/'+element?.image}}" width="150">
+      </a>
+    </td>
+  </ng-container>
 
   <ng-container matColumnDef="stationId">
     <th mat-header-cell *matHeaderCellDef> Id </th>

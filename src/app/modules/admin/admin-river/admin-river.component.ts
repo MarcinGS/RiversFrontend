@@ -19,6 +19,7 @@ export class AdminRiverComponent implements AfterViewInit {
   dataSource: AdminRiver[] = [];
   
   displayedColumns: string[] =[
+    "image",
     "stationId",
     "riverName",
     "stationName",
