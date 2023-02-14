@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AdminRegionNamesDto } from './adminRegionNamesDto';
+import { FormRegionService } from './form-region.service';
 
 @Component({
   selector: 'app-admin-river-form',
@@ -12,10 +14,11 @@ import { FormGroup } from '@angular/forms';
           placeholder="Podaj id stacji"
           formControlName="stationId"
         />
-        <div *ngIf="stationId?.invalid && (stationId?.dirty || stationId?.touched)" class="errorMessages">
-              <div *ngIf="stationId?.errors?.['required']">
-                Nazwa jest wymagana
-              </div>
+        <div
+          *ngIf="stationId?.invalid && (stationId?.dirty || stationId?.touched)"
+          class="errorMessages"
+        >
+          <div *ngIf="stationId?.errors?.['required']">Nazwa jest wymagana</div>
         </div>
       </mat-form-field>
 
@@ -26,10 +29,15 @@ import { FormGroup } from '@angular/forms';
           placeholder="Podaj nazwe stacji"
           formControlName="stationName"
         />
-        <div *ngIf="stationName?.invalid && (stationName?.dirty || stationName?.touched)" class="errorMessages">
-              <div *ngIf="stationName?.errors?.['required']">
-                Nazwa jest wymagana
-              </div>
+        <div
+          *ngIf="
+            stationName?.invalid && (stationName?.dirty || stationName?.touched)
+          "
+          class="errorMessages"
+        >
+          <div *ngIf="stationName?.errors?.['required']">
+            Nazwa jest wymagana
+          </div>
         </div>
       </mat-form-field>
 
@@ -40,26 +48,27 @@ import { FormGroup } from '@angular/forms';
           placeholder="Podaj nazwe rzeki"
           formControlName="riverName"
         />
-        <div *ngIf="riverName?.invalid && (riverName?.dirty || riverName?.touched)" class="errorMessages">
-              <div *ngIf="riverName?.errors?.['required']">
-                Nazwa jest wymagana
-              </div>
+        <div
+          *ngIf="riverName?.invalid && (riverName?.dirty || riverName?.touched)"
+          class="errorMessages"
+        >
+          <div *ngIf="riverName?.errors?.['required']">Nazwa jest wymagana</div>
         </div>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Województwo</mat-label>
-        <input
-          matInput
-          placeholder="Podaj nazwe województwa"
-          formControlName="region"
-        />
-        <div *ngIf="region?.invalid && (region?.dirty || region?.touched)" class="errorMessages">
-              <div *ngIf="region?.errors?.['required']">
-                Nazwa jest wymagana
-              </div>
+          <mat-label>Województwo</mat-label>
+          <mat-select formControlName="regionId">
+            <mat-option *ngFor="let element of regions" [value]="element.id">
+              {{ element.name }}
+            </mat-option>
+          </mat-select>
+          <div
+          *ngIf="regionId?.invalid && (regionId?.dirty || regionId?.touched)"
+          class="errorMessages">
+          <div *ngIf="regionId?.errors?.['required']">Nazwa jest wymagana</div>
         </div>
-      </mat-form-field>
+        </mat-form-field>
     </div>
 
     <div>
@@ -111,11 +120,14 @@ import { FormGroup } from '@angular/forms';
             placeholder="Poziom zjawiska lodowego"
             formControlName="iceLevel"
           />
-          <div *ngIf="iceLevel?.invalid && (iceLevel?.dirty || iceLevel?.touched)" class="errorMessages">
-              <div *ngIf="iceLevel?.errors?.['min']">
+          <div
+            *ngIf="iceLevel?.invalid && (iceLevel?.dirty || iceLevel?.touched)"
+            class="errorMessages"
+          >
+            <div *ngIf="iceLevel?.errors?.['min']">
               Poziom nie może być mniejszy od 0
-              </div>
-        </div>
+            </div>
+          </div>
         </mat-form-field>
 
         <mat-form-field fxFlex="25">
@@ -136,11 +148,16 @@ import { FormGroup } from '@angular/forms';
             placeholder="Poziom zjawiska zarastania"
             formControlName="growLevel"
           />
-          <div *ngIf="growLevel?.invalid && (growLevel?.dirty || growLevel?.touched)" class="errorMessages">
-              <div *ngIf="growLevel?.errors?.['min']">
-                Poziom nie może być mniejszy od 0
-              </div>
-        </div>
+          <div
+            *ngIf="
+              growLevel?.invalid && (growLevel?.dirty || growLevel?.touched)
+            "
+            class="errorMessages"
+          >
+            <div *ngIf="growLevel?.errors?.['min']">
+              Poziom nie może być mniejszy od 0
+            </div>
+          </div>
         </mat-form-field>
 
         <mat-form-field fxFlex="25">
@@ -155,44 +172,56 @@ import { FormGroup } from '@angular/forms';
     </div>
 
     <div fxLayoutAlign="end">
-      <button mat-flat-button color="primary" [disabled]="!parentForm.valid">Zapisz</button>
+      <button mat-flat-button color="primary" [disabled]="!parentForm.valid">
+        Zapisz
+      </button>
     </div>
   </div>`,
-  styles: [`
-  .errorMessages{
-    color: red;
-  }`]
+  styles: [
+    `
+      .errorMessages {
+        color: red;
+      }
+    `,
+  ],
 })
 export class AdminRiverFormComponent implements OnInit {
 
   @Input() parentForm!: FormGroup;
-  constructor() {}
+  regions: Array<AdminRegionNamesDto> = [];
 
-  ngOnInit(): void {}
+  constructor(private formRegionService: FormRegionService) {}
 
-  get stationId(){
-    return this.parentForm.get("stationId");
+  ngOnInit(): void {
+    this.getCategories();
   }
 
-  get stationName(){
-    return this.parentForm.get("stationName");
+  getCategories(){
+    this.formRegionService.getRegions()
+      .subscribe(regions => this.regions = regions);
   }
 
-  get riverName(){
-    return this.parentForm.get("riverName");
+  get stationId() {
+    return this.parentForm.get('stationId');
   }
 
-  get region(){
-    return this.parentForm.get("region");
+  get stationName() {
+    return this.parentForm.get('stationName');
   }
 
-  get iceLevel(){
-    return this.parentForm.get("iceLevel");
+  get riverName() {
+    return this.parentForm.get('riverName');
   }
 
-  get growLevel(){
-    return this.parentForm.get("growLevel");
+  get regionId() {
+    return this.parentForm.get('region');
   }
 
+  get iceLevel() {
+    return this.parentForm.get('iceLevel');
+  }
 
+  get growLevel() {
+    return this.parentForm.get('growLevel');
+  }
 }

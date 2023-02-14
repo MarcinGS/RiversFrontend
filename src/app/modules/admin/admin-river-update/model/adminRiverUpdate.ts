@@ -3,7 +3,7 @@ export interface AdminRiverUpdate{
     stationId: number,
     stationName: string,
     riverName: string,
-    region: string,
+    regionId: number,
     waterLevel: string,
     waterDate: string,
     waterTemp: string | null,
