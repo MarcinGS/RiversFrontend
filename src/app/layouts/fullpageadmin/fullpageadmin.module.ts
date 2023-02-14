@@ -11,6 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminRiverAddComponent } from 'src/app/modules/admin/admin-river-add/admin-river-add.component';
 import { AdminRiverFormComponent } from 'src/app/modules/admin/admin-river-form/admin-river-form.component';
 import { AdminConfirmDialogComponent } from 'src/app/modules/admin/admin-confirm-dialog/admin-confirm-dialog.component';
+import { AdminRegionComponent } from 'src/app/modules/admin/admin-region/admin-region.component';
+import { AdminRegionUpdateComponent } from 'src/app/modules/admin/admin-region/admin-region-update/admin-region-update.component';
+import { AdminRegionFormComponent } from 'src/app/modules/admin/admin-region/admin-region-form/admin-region-form.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,17 @@ import { AdminConfirmDialogComponent } from 'src/app/modules/admin/admin-confirm
     AdminRiverUpdateComponent,
     AdminRiverAddComponent,
     AdminRiverFormComponent,
-    AdminConfirmDialogComponent
+    AdminConfirmDialogComponent,
+    AdminRegionComponent,
+    AdminRegionUpdateComponent,
+    AdminRegionFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
     MaterialModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
-export class FullpageadminModule { }
+export class FullpageadminModule {}

@@ -26,6 +26,7 @@ export class AdminRiverComponent implements AfterViewInit {
     "region",
     "actions"
   ];
+  
   constructor(
     private adminRiverService: AdminRiverService,
     private adminConfirmDialogService: AdminConfirmDialogService) { }

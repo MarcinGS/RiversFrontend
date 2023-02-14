@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AdminRegionNamesDto } from './adminRegionNamesDto';
+import { AdminRegionNamesDto } from '../common/dto/adminRegionNameDto';
 import { FormRegionService } from './form-region.service';
 
 @Component({
@@ -57,18 +57,19 @@ import { FormRegionService } from './form-region.service';
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-          <mat-label>Województwo</mat-label>
-          <mat-select formControlName="regionId">
-            <mat-option *ngFor="let element of regions" [value]="element.id">
-              {{ element.name }}
-            </mat-option>
-          </mat-select>
-          <div
+        <mat-label>Województwo</mat-label>
+        <mat-select formControlName="regionId">
+          <mat-option *ngFor="let element of regions" [value]="element.id">
+            {{ element.name }}
+          </mat-option>
+        </mat-select>
+        <div
           *ngIf="regionId?.invalid && (regionId?.dirty || regionId?.touched)"
-          class="errorMessages">
+          class="errorMessages"
+        >
           <div *ngIf="regionId?.errors?.['required']">Nazwa jest wymagana</div>
         </div>
-        </mat-form-field>
+      </mat-form-field>
     </div>
 
     <div>
@@ -186,7 +187,6 @@ import { FormRegionService } from './form-region.service';
   ],
 })
 export class AdminRiverFormComponent implements OnInit {
-
   @Input() parentForm!: FormGroup;
   regions: Array<AdminRegionNamesDto> = [];
 
@@ -196,9 +196,10 @@ export class AdminRiverFormComponent implements OnInit {
     this.getCategories();
   }
 
-  getCategories(){
-    this.formRegionService.getRegions()
-      .subscribe(regions => this.regions = regions);
+  getCategories() {
+    this.formRegionService
+      .getRegions()
+      .subscribe((regions) => (this.regions = regions));
   }
 
   get stationId() {
