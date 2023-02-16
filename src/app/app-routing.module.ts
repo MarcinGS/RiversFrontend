@@ -11,6 +11,7 @@ import { AdminRiverComponent } from './modules/admin/admin-river/admin-river.com
 import { AdminComponent } from './modules/admin/admin.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
+import { RegionComponent } from './modules/region/region.component';
 import { RiverDetailsComponent } from './modules/river-details/river-details.component';
 import { RiverComponent } from './modules/river/river.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'rivers', component: RiverComponent },
       { path: 'rivers/:stationId', component: RiverDetailsComponent },
+      { path: 'regions/:name', component: RegionComponent }
     ],
   },
   {

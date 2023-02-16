@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RiverDetailsComponent } from 'src/app/modules/river-details/river-details.component';
+import { RegionComponent } from 'src/app/modules/region/region.component';
 
 
 
@@ -15,7 +16,8 @@ import { RiverDetailsComponent } from 'src/app/modules/river-details/river-detai
     DefaultComponent,
     HomeComponent,
     RiverComponent,
-    RiverDetailsComponent
+    RiverDetailsComponent,
+    RegionComponent
   ],
   imports: [
     CommonModule,
