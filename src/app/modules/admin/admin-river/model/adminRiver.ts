@@ -1,15 +1,16 @@
 export interface AdminRiver {
     id: number,
-    stationId: number,
-    stationName: string,
-    riverName: string,
-    region: string,
-    waterLevel: string,
-    waterDate: string,
-    waterTemp: string | null,
+    stationId: number | null,
+    stationName: string | null,
+    riverName: string | null,
+    regionId: number | null,
+    waterLevel: number | null,
+    waterDate: string | null,
+    waterTemp: number | null,
     tempDate: string | null,
-    iceLevel: string,
-    iceDate: string,
-    growLevel: string,
-    growDate: string 
+    iceLevel: number | null,
+    iceDate: string | null,
+    growLevel: number | null,
+    growDate: string | null,
+    image: string | null
 }
