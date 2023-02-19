@@ -1,5 +1,5 @@
-import { River } from "../../river/model/river";
+import { River } from '../../common/model/river';
 
-export interface Region{
-    name: string
+export interface Region {
+  name: string;
 }

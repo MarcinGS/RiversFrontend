@@ -3,27 +3,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { AdminRiverUpdateService } from './admin-river-update.service';
-import { AdminRiverUpdate } from './model/adminRiverUpdate';
+import { AdminRiverUpdate } from '../model/adminRiverUpdate';
+import { AdminRiverImageService } from '../admin-river-image.service';
 
 @Component({
   selector: 'app-admin-river-update',
   templateUrl: './admin-river-update.component.html',
-  styleUrls: ['./admin-river-update.component.scss']
+  styleUrls: ['./admin-river-update.component.scss'],
 })
 export class AdminRiverUpdateComponent implements OnInit {
-  
   river!: AdminRiverUpdate;
   riverForm!: FormGroup;
-  requiredFileTypes = "image/jpeg, image/png";
+  requiredFileTypes = 'image/jpeg, image/png';
   imageForm!: FormGroup;
   image: string | null = null;
-  
+
   constructor(
     private router: ActivatedRoute,
     private adminRiverUpdateService: AdminRiverUpdateService,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar) { }
-    
+    private snackBar: MatSnackBar,
+    private adminRiverimageService: AdminRiverImageService
+  ) {}
+
   ngOnInit(): void {
     this.getRiver();
 
@@ -39,53 +41,57 @@ export class AdminRiverUpdateComponent implements OnInit {
       iceLevel: ['', Validators.min(0)],
       iceDate: [''],
       growLevel: ['', Validators.min(0)],
-      growDate: ['']
-    }); 
+      growDate: [''],
+    });
 
     this.imageForm = this.formBuilder.group({
-      file: ['']
+      file: [''],
     });
-  } 
-  
-  getRiver(){
-    let id = Number(this.router.snapshot.params['id']);
-    this.adminRiverUpdateService.getRiver(id).subscribe(river => this.mapFormValues(river));
   }
 
-  
+  getRiver() {
+    let id = Number(this.router.snapshot.params['id']);
+    this.adminRiverUpdateService
+      .getRiver(id)
+      .subscribe((river) => this.mapFormValues(river));
+  }
+
   submit() {
     let id = Number(this.router.snapshot.params['id']);
-    this.adminRiverUpdateService.savePost(id, {
-      stationId: this.riverForm.get('stationId')?.value,
-      stationName: this.riverForm.get('stationName')?.value,
-      riverName: this.riverForm.get('riverName')?.value,
-      regionId: this.riverForm.get('regionId')?.value,
-      waterLevel: this.riverForm.get('waterLevel')?.value,
-      waterDate: this.riverForm.get('waterDate')?.value,
-      waterTemp: this.riverForm.get('waterTemp')?.value,
-      tempDate: this.riverForm.get('tempDate')?.value,
-      iceLevel: this.riverForm.get('iceLevel')?.value,
-      iceDate: this.riverForm.get('iceDate')?.value,
-      growLevel: this.riverForm.get('growLevel')?.value,
-      growDate: this.riverForm.get('growDate')?.value,
-      image: this.image
-    } as AdminRiverUpdate).subscribe(river => {
-      this.mapFormValues(river);
-      this.snackBar.open("Dane zostały zapisane","", {duration: 3000});
-    });
+    this.adminRiverUpdateService
+      .savePost(id, {
+        stationId: this.riverForm.get('stationId')?.value,
+        stationName: this.riverForm.get('stationName')?.value,
+        riverName: this.riverForm.get('riverName')?.value,
+        regionId: this.riverForm.get('regionId')?.value,
+        waterLevel: this.riverForm.get('waterLevel')?.value,
+        waterDate: this.riverForm.get('waterDate')?.value,
+        waterTemp: this.riverForm.get('waterTemp')?.value,
+        tempDate: this.riverForm.get('tempDate')?.value,
+        iceLevel: this.riverForm.get('iceLevel')?.value,
+        iceDate: this.riverForm.get('iceDate')?.value,
+        growLevel: this.riverForm.get('growLevel')?.value,
+        growDate: this.riverForm.get('growDate')?.value,
+        image: this.image,
+      } as AdminRiverUpdate)
+      .subscribe((river) => {
+        this.mapFormValues(river);
+        this.snackBar.open('Dane zostały zapisane', '', { duration: 3000 });
+      });
   }
 
-  uploadFile(){
+  uploadFile() {
     let formData = new FormData();
     formData.append('file', this.imageForm.get('file')?.value);
-    this.adminRiverUpdateService.uploadImage(formData)
-      .subscribe(result => this.image = result.filename);
+    this.adminRiverimageService
+      .uploadImage(formData)
+      .subscribe((result) => (this.image = result.filename));
   }
 
-  onFileChange(event: any){
-    if(event.target.files.length > 0){
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
       this.imageForm.patchValue({
-        file: event.target.files[0]
+        file: event.target.files[0],
       });
     }
   }
@@ -103,7 +109,7 @@ export class AdminRiverUpdateComponent implements OnInit {
       iceLevel: river.iceLevel,
       iceDate: river.iceDate,
       growLevel: river.growLevel,
-      growDate: river.growDate
+      growDate: river.growDate,
     });
     this.image = river.image;
   }

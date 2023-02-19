@@ -1,9 +1,9 @@
-<h1>Województwo: {{regionRivers?.region?.name}}</h1>
+<h1>Województwo: {{regionRivers.region.name}}</h1>
 <mat-card *ngFor="let river of regionRivers?.rivers?.content">
     <div flexLayout="row">
       <div flexLayout="column" fxFlex>
         <mat-card-title><a routerLink="{{'/rivers/' + river.stationId}}">{{river.riverName}}</a></mat-card-title>
-        <mat-card-subtitle>{{regionRivers?.region?.name}}</mat-card-subtitle>
+        <mat-card-subtitle>{{regionRivers.region.name}}</mat-card-subtitle>
         <div flexLayout="row">
           <a routerLink="{{'/rivers/' + river.stationId}}">
             <img *ngIf="!river?.image" src="../../../assets/image-placeholder.png" mat-card-sm-image class="riverImage">

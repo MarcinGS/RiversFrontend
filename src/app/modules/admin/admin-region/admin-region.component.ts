@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { AdminConfirmDialogService } from '../admin-confirm-dialog.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { AdminRegionNamesDto } from '../common/dto/adminRegionNameDto';
 import { AdminRegionService } from './admin-region.service';
 
@@ -15,33 +15,36 @@ export class AdminRegionComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'actions'];
 
-  constructor(private adminRegionService: AdminRegionService,
-    private dialogService: AdminConfirmDialogService) {}
+  constructor(
+    private adminRegionService: AdminRegionService,
+    private dialogService: AdminConfirmDialogService
+  ) {}
 
   ngOnInit(): void {
     this.getRegions();
   }
 
-  getRegions(){
-    this.adminRegionService.getRegions()
-    .subscribe(regions => this.dataSource = regions)
+  getRegions() {
+    this.adminRegionService
+      .getRegions()
+      .subscribe((regions) => (this.dataSource = regions));
   }
 
   confirmDelete(element: AdminRegionNamesDto) {
-    this.dialogService.openConfirmDialog("Czy na pewno chcesz usunąć tą pozycje?")
-    .afterClosed()
-    .subscribe(result => {
-      if(result){
-        this.adminRegionService.delete(element.id)
-        .subscribe(() => {
-          this.dataSource.forEach((value, index) =>{
-            if(element == value){
-              this.dataSource.splice(index, 1);
-              this.table.renderRows();
-            }
-          })
-        });
-      }
-    });
+    this.dialogService
+      .openConfirmDialog('Czy na pewno chcesz usunąć tą pozycje?')
+      .afterClosed()
+      .subscribe((result) => {
+        if (result) {
+          this.adminRegionService.delete(element.id).subscribe(() => {
+            this.dataSource.forEach((value, index) => {
+              if (element == value) {
+                this.dataSource.splice(index, 1);
+                this.table.renderRows();
+              }
+            });
+          });
+        }
+      });
   }
 }

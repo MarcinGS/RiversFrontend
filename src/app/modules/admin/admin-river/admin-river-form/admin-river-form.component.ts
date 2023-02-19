@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AdminRegionNamesDto } from '../common/dto/adminRegionNameDto';
+import { AdminRegionNamesDto } from '../../common/dto/adminRegionNameDto';
 import { FormRegionService } from './form-region.service';
 
 @Component({

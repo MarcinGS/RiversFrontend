@@ -4,8 +4,8 @@
             <div>
                 <!-- zacznie działać po dodaniu relacji -->
                 <img *ngIf="!river?.image" mat-card-md-image src="/assets/image-placeholder.png">
-                <img *ngIf="river?.image" mat-card-md-image src="{{'/api/data/riverImage/'+river?.image}}">
-            </div>
+                <img *ngIf="river?.image" mat-card-md-image src="{{'/api/data/riverImage/'+river.image}}">
+            </div> 
         </div>
         <div fxFlex="80">
             <mat-tab-group>
@@ -15,19 +15,19 @@
                             <div fxLayout="row" fxFlex>
                                 <div fxFlex="25">
                                     <mat-card-subtitle>Nazwa rzeki</mat-card-subtitle>
-                                    <mat-card-title>{{river?.riverName}}</mat-card-title>
+                                    <mat-card-title>{{river.riverName}}</mat-card-title>
                                 </div>
                                 <div fxFlex="25">
                                     <mat-card-subtitle>Id stacji</mat-card-subtitle>
-                                    <mat-card-title>{{river?.stationId}}</mat-card-title>
+                                    <mat-card-title>{{river.stationId}}</mat-card-title>
                                 </div>
                                 <div fxFlex="25">
                                     <mat-card-subtitle>Nazwa stacji</mat-card-subtitle>
-                                    <mat-card-title>{{river?.stationName}}</mat-card-title>
+                                    <mat-card-title>{{river.stationName}}</mat-card-title>
                                 </div>
                                 <div fxFlex="25">
                                     <mat-card-subtitle>Województwo</mat-card-subtitle>
-                                    <mat-card-title>{{river?.region | titlecase}}</mat-card-title>
+                                    <mat-card-title>{{river.region | titlecase}}</mat-card-title>
                                 </div>
                             </div>
                         </mat-card-header>
@@ -39,23 +39,23 @@
                             <div fxLayout="row">
                                 <div fxFlex>
                                     <h4>Poziom wody:</h4>
-                                    <mat-card-title>{{river?.waterLevel}}</mat-card-title>
-                                    <mat-card-subtitle>Data: {{river?.waterDate | date}}</mat-card-subtitle>
+                                    <mat-card-title>{{river.waterLevel}}</mat-card-title>
+                                    <mat-card-subtitle>Data: {{river.waterDate | date}}</mat-card-subtitle>
                                 </div>
                                 <div fxFlex>
                                     <h4>Temperatura wody:</h4>
-                                    <mat-card-title>{{river?.waterTemp}}</mat-card-title>
-                                    <mat-card-subtitle>Data: {{river?.tempDate | date}}</mat-card-subtitle>
+                                    <mat-card-title>{{river.waterTemp}}</mat-card-title>
+                                    <mat-card-subtitle>Data: {{river.tempDate | date}}</mat-card-subtitle>
                                 </div>
                                 <div fxFlex>
                                     <h4>Zjawisko lodowe:</h4>
-                                    <mat-card-title>{{river?.iceLevel}}</mat-card-title>
-                                    <mat-card-subtitle>Data: {{river?.iceDate | date}}</mat-card-subtitle>
+                                    <mat-card-title>{{river.iceLevel}}</mat-card-title>
+                                    <mat-card-subtitle>Data: {{river.iceDate | date}}</mat-card-subtitle>
                                 </div>
                                 <div fxFlex>
                                     <h4>Zjawisko zamarzania:</h4>
-                                    <mat-card-title>{{river?.growLevel}}</mat-card-title>
-                                    <mat-card-subtitle>Data: {{river?.growDate | date}}</mat-card-subtitle>
+                                    <mat-card-title>{{river.growLevel}}</mat-card-title>
+                                    <mat-card-subtitle>Data: {{river.growDate | date}}</mat-card-subtitle>
                                 </div>
                             </div>
                         </mat-card-content>
