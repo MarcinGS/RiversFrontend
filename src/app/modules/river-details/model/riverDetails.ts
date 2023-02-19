@@ -1,4 +1,7 @@
+import { Note } from "./note";
+
 export interface RiverDetails{
+    id: number,
     stationId: string,
     stationName: string,
     riverName: string,
@@ -11,6 +14,6 @@ export interface RiverDetails{
     iceDate: string,
     growLevel: string,
     growDate: string,
-    note: string,
+    note: Array<Note>,
     image: string
 }

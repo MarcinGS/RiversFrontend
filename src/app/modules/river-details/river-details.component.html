@@ -8,7 +8,7 @@
             </div>
         </div>
         <div fxFlex="80">
-            <mat-tab-group >
+            <mat-tab-group>
                 <mat-tab label="Lokalizacja">
                     <div>
                         <mat-card-header>
@@ -60,6 +60,49 @@
                             </div>
                         </mat-card-content>
                     </div>
+                </mat-tab>
+                <mat-tab label="Notatki">
+                    <div>
+                        <h4>Notatki</h4>
+                        <div>
+                            <div *ngFor="let note of river?.note" class="note">
+                                <div><b>Temat: </b>{{note.topic}}</div>
+                                <div><b>Treść:</b><br>{{note.content}}</div>
+                            </div>
+                        </div>
+                        <form [formGroup]="noteForm" (submit)="submit()" fxLayout="column">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Temat</mat-label>
+                                <input matInput placeholder="Podaj temat notatki" formControlName="topic">
+                                <div *ngIf="topic?.invalid && (topic?.dirty || topic?.touched)" class="errorMessage">
+                                    <div *ngIf="topic?.errors?.['required']">
+                                        Temat jest wymagany
+                                    </div>
+                                    <div *ngIf="topic?.errors?.['minlength']">
+                                        Temat musi mieć przynajmniej 2 znaki
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Twoja notatka</mat-label>
+                                <textarea matInput rows="10" placeholder="Treść notatki"
+                                    formControlName="content"></textarea>
+                                <div *ngIf="content?.invalid && (content?.dirty || content?.touched)"
+                                    class="errorMessage">
+                                    <div *ngIf="content?.errors?.['required']">
+                                        Notatka jest wymagany
+                                    </div>
+                                    <div *ngIf="content?.errors?.['minlength']">
+                                        Notatka musi mieć przynajmniej 4 znaki
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                            <div fxLayout="colum" fxFlexAlign="end" fxLayoutGap="10">
+                                <button mat-flat-button color="primary" [disabled]="!noteForm.valid">Zapisz</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </mat-tab>
             </mat-tab-group>
         </div>

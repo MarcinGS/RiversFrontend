@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RiverDetailsComponent } from 'src/app/modules/river-details/river-details.component';
 import { RegionComponent } from 'src/app/modules/region/region.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +24,8 @@ import { RegionComponent } from 'src/app/modules/region/region.component';
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class DefaultModule { }
