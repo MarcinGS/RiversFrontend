@@ -11,8 +11,8 @@ export class RiverDetailsService {
 
   constructor(private http: HttpClient) { }
 
-  getRiverDetails(stationId: String): Observable<RiverDetails>{
-      return this.http.get<RiverDetails>("/api/rivers/" + stationId);
+  getRiverDetails(id: String): Observable<RiverDetails>{
+      return this.http.get<RiverDetails>("/api/admin/rivers/" + id);
   }
 
   saveRiverNote(note: Note): Observable<Note>{

@@ -31,8 +31,8 @@ export class RiverDetailsComponent implements OnInit {
   }
 
   getRiverDetails(){
-    let stationId = this.router.snapshot.params['stationId'];
-      this.riverDetailsService.getRiverDetails(stationId)
+    let id = this.router.snapshot.params['id'];
+      this.riverDetailsService.getRiverDetails(id)
       .subscribe(river => this.river = river);
   }
 

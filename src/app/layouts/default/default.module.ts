@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RiverDetailsComponent } from 'src/app/modules/river-details/river-details.component';
 import { RegionComponent } from 'src/app/modules/region/region.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { UserListComponent } from 'src/app/modules/user-list/user-list.component';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     RiverComponent,
     RiverDetailsComponent,
-    RegionComponent
+    RegionComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,

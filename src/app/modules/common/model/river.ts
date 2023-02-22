@@ -1,4 +1,5 @@
 export interface River{
+    id: number,
     stationId: string,
     stationName: string,
     riverName: string,

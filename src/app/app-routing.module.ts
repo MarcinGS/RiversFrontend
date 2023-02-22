@@ -14,6 +14,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegionComponent } from './modules/region/region.component';
 import { RiverDetailsComponent } from './modules/river-details/river-details.component';
 import { RiverComponent } from './modules/river/river.component';
+import { UserListComponent } from './modules/user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -22,8 +23,9 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'rivers', component: RiverComponent },
-      { path: 'rivers/:stationId', component: RiverDetailsComponent },
+      { path: 'rivers/:id', component: RiverDetailsComponent },
       { path: 'regions/:name', component: RegionComponent },
+      { path: 'userlist', component: UserListComponent }
     ],
   },
   {

@@ -5,9 +5,11 @@
     </div>
     <div fxLayoutGap="10" fxLayoutAlign="start center">
         <button mat-raised-button color="primary" routerLink="">Strona główna</button>
-        <button mat-raised-button color="primary" >Rzeki</button>
+        <button mat-raised-button color="primary" routerLink="/rivers">Rzeki</button>
         <span></span>
         <button mat-raised-button color="warn" routerLink="/login">Logowanie</button>
-        <mat-icon color="primary" class="listIcon" routerLink="/rivers">list_alt</mat-icon>
+        <button mat-icon-button color="accent">
+            <mat-icon class="listIcon" routerLink="/userlist">list_alt</mat-icon>
+          </button>
     </div >
 </header>

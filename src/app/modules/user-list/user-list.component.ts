@@ -1,0 +1,64 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { UserList } from './model/userList';
+import { UserListService } from './user-list.service';
+
+
+
+@Component({
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
+})
+export class UserListComponent implements OnInit {
+
+   userList!: UserList;
+
+  constructor(private route: ActivatedRoute,
+    private userListService: UserListService,
+    private cookieService: CookieService,
+    private router: Router
+    ) 
+    { }
+
+  ngOnInit(): void {
+    let riverId = Number(this.route.snapshot.queryParams['riverId']);
+    console.log("riverId: " + riverId);
+    if(riverId > 0){
+      this.addToUserList(riverId);
+    }else{
+      this.getUserList();
+    }
+  }
+
+
+  getUserList(){
+    let userListId = Number(this.cookieService.get("userListId"));
+    if(userListId > 0){
+      this.userListService.getUserList(userListId)
+      .subscribe(userList => this.userList = userList);
+    }
+  }
+
+  addToUserList(riverId: number){
+    let userListId = Number(this.cookieService.get("userListId"));
+    console.log("userListId: " + userListId);
+    this.userListService.addToUserList(userListId, {riverId: riverId})
+    .subscribe(userList => {
+      this.userList = userList;
+      //Kasuje cookie
+      this.cookieService.delete("userListId");
+      //Ustawia cookie
+      this.cookieService.set("userListId", userList.id.toString(), this.expireDays(3));
+      //Przekierowuje do listy
+      this.router.navigate(["/userlist"]);
+    });
+    
+  }
+
+  expireDays(days: number): Date {
+    return new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+  }
+
+}
