@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { River } from '../common/model/river';
+import { UserListIconService } from '../common/service/user-list-icon.service';
 import { UserList } from './model/userList';
 import { UserListItem } from './model/userListItem';
 import { UserListService } from './user-list.service';
@@ -22,7 +23,8 @@ export class UserListComponent implements OnInit {
     private userListService: UserListService,
     private cookieService: CookieService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userListIconservice: UserListIconService
     ) 
     { }
 
@@ -41,15 +43,19 @@ export class UserListComponent implements OnInit {
     let userListId = Number(this.cookieService.get("userListId"));
     if(userListId > 0){
       this.userListService.getUserList(userListId)
-      .subscribe(userList => this.userList = userList);
+      .subscribe(userList => {
+        this.userList = userList
+        this.userListIconservice.userListChanger(userList.items.length)
+      });
     }
-  }
+  } 
 
   addToUserList(riverId: number){
     let userListId = Number(this.cookieService.get("userListId"));
     this.userListService.addToUserList(userListId, {riverId: riverId})
     .subscribe(userList => {
       this.userList = userList;
+      this.userListIconservice.userListChanger(userList.items.length)
       //Kasuje cookie
       this.cookieService.delete("userListId");
       //Ustawia cookie
