@@ -13,7 +13,13 @@ html{
     background-color: $lightgray;
 }
 
+// Dla snackbara
 .snack-bar-status-ok{
     background-color: #ffd740;
+    color: black;
+}
+
+.snack-bar-status-delete{
+    background-color: #f44336;
     color: black;
 }

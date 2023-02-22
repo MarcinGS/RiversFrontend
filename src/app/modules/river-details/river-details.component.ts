@@ -45,7 +45,6 @@ export class RiverDetailsComponent implements OnInit {
       } as Note).subscribe(note => {
         this.noteForm.reset();
         this.snackBar.open("Notatka została dodana", "", {duration: 3000, panelClass: "snack-bar-status-ok"});
-
       });
       
     }

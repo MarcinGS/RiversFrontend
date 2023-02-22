@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { River } from '../common/model/river';
 import { UserList } from './model/userList';
+import { UserListItem } from './model/userListItem';
 import { UserListService } from './user-list.service';
 
 
@@ -12,21 +15,22 @@ import { UserListService } from './user-list.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
-   userList!: UserList;
-
+  
+  userList!: UserList;
+  
   constructor(private route: ActivatedRoute,
     private userListService: UserListService,
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
     ) 
     { }
 
   ngOnInit(): void {
     let riverId = Number(this.route.snapshot.queryParams['riverId']);
-    console.log("riverId: " + riverId);
     if(riverId > 0){
       this.addToUserList(riverId);
+      this.snackBar.open("Rzeka została dodana","",{duration: 3000, panelClass: "snack-bar-status-ok"});
     }else{
       this.getUserList();
     }
@@ -43,7 +47,6 @@ export class UserListComponent implements OnInit {
 
   addToUserList(riverId: number){
     let userListId = Number(this.cookieService.get("userListId"));
-    console.log("userListId: " + userListId);
     this.userListService.addToUserList(userListId, {riverId: riverId})
     .subscribe(userList => {
       this.userList = userList;
@@ -56,9 +59,16 @@ export class UserListComponent implements OnInit {
     });
     
   }
-
+  
   expireDays(days: number): Date {
     return new Date(Date.now() + days * 24 * 60 * 60 * 1000);
   }
+  
+  deleteRiver(riverId: number) {
+   this.userListService.deleteRiver(riverId)
+   .subscribe(() => this.ngOnInit());
+   this.snackBar.open("Rzeka została usunięta","",{duration: 3000, panelClass: "snack-bar-status-delete"});
+  }
+
 
 }

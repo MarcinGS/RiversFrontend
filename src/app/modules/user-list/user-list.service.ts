@@ -8,15 +8,19 @@ import { UserListItem } from './model/userListItem';
   providedIn: 'root'
 })
 export class UserListService {
-
+  
   constructor(private http: HttpClient) { }
-
+  
   getUserList(id: number): Observable<UserList>{
     return this.http.get<UserList>("/api/userlist/" + id);
   }
-
+  
   addToUserList(userListId: number, riverId: any ): Observable<UserList>{
     return this.http.put<UserList>("/api/userlist/" + userListId, riverId);
   }
-}
+
+  deleteRiver(userListId: number): Observable<void> {
+    return this.http.delete<void>("/api/userlist/" + userListId);
+  }
+} 
 
