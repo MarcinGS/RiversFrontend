@@ -7,6 +7,7 @@ import { UserListIconService } from '../common/service/user-list-icon.service';
 import { UserList } from './model/userList';
 import { UserListItem } from './model/userListItem';
 import { UserListService } from './user-list.service';
+import { Location } from '@angular/common';
 
 
 
@@ -18,27 +19,31 @@ import { UserListService } from './user-list.service';
 export class UserListComponent implements OnInit {
   
   userList!: UserList;
+  private isRiverAdded = false;
   
   constructor(private route: ActivatedRoute,
     private userListService: UserListService,
     private cookieService: CookieService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private userListIconservice: UserListIconService
+    private userListIconservice: UserListIconService,
+    private location: Location
     ) 
     { }
-
+    
   ngOnInit(): void {
     let riverId = Number(this.route.snapshot.queryParams['riverId']);
     if(riverId > 0){
       this.addToUserList(riverId);
       this.snackBar.open("Rzeka została dodana","",{duration: 3000, panelClass: "snack-bar-status-ok"});
+      this.isRiverAdded = true;
     }else{
       this.getUserList();
+      this.isRiverAdded = false;
     }
   }
-
-
+  
+  
   getUserList(){
     let userListId = Number(this.cookieService.get("userListId"));
     if(userListId > 0){
@@ -75,6 +80,9 @@ export class UserListComponent implements OnInit {
    .subscribe(() => this.ngOnInit());
    this.snackBar.open("Rzeka została usunięta","",{duration: 3000, panelClass: "snack-bar-status-delete"});
   }
-
-
+  
+  back() {
+  this.location.historyGo(this.isRiverAdded ? -2 : -1);
+  }
+  
 }
