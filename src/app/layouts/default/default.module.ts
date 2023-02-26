@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { DefaultComponent } from './default.component';
 import { HomeComponent } from 'src/app/modules/home/home.component';
 import { RiverComponent } from 'src/app/modules/river/river.component';
@@ -10,6 +10,8 @@ import { RiverDetailsComponent } from 'src/app/modules/river-details/river-detai
 import { RegionComponent } from 'src/app/modules/region/region.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from 'src/app/modules/user-list/user-list.component';
+import { RiverStatisticsComponent } from 'src/app/modules/river-details/river-statistics/river-statistics.component';
+
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { UserListComponent } from 'src/app/modules/user-list/user-list.component
     RiverComponent,
     RiverDetailsComponent,
     RegionComponent,
-    UserListComponent
+    UserListComponent,
+    RiverStatisticsComponent
   ],
   imports: [
     CommonModule,

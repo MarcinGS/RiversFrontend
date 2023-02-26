@@ -1,4 +1,3 @@
-<h1>Województwo: {{regionRivers.region.name}}</h1>
 <mat-card *ngFor="let river of regionRivers?.rivers?.content">
     <div flexLayout="row">
       <div flexLayout="column" fxFlex>
@@ -17,7 +16,7 @@
       </div>
     </div>
     <mat-card-actions align="end" fxLayoutGap="10">
-      <button mat-flat-button color="primary" routerLink="{{'/rivers/' + river.stationId}}">Pokaż</button>
+      <button mat-flat-button color="primary" routerLink="{{'/rivers/' + river.id}}">Pokaż</button>
       <button mat-flat-button color="accent">Dodaj do listy</button>
     </mat-card-actions>
   </mat-card>

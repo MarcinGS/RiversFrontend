@@ -58,7 +58,7 @@ import { FormRegionService } from './form-region.service';
 
       <mat-form-field appearance="outline">
         <mat-label>Województwo</mat-label>
-        <mat-select formControlName="regionId">
+        <mat-select formControlName="region">
           <mat-option *ngFor="let element of regions" [value]="element.id">
             {{ element.name }}
           </mat-option>

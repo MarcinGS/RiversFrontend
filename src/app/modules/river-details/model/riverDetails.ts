@@ -1,3 +1,5 @@
+import { Measurements } from "../../common/model/measurements";
+import { Region } from "../../region/model/region";
 import { Note } from "./note";
 
 export interface RiverDetails{
@@ -5,15 +7,8 @@ export interface RiverDetails{
     stationId: string,
     stationName: string,
     riverName: string,
-    region: string,
-    waterLevel: string,
-    waterDate: string,
-    waterTemp: string | null,
-    tempDate: string | null,
-    iceLevel: string,
-    iceDate: string,
-    growLevel: string,
-    growDate: string,
+    region: Region,
+    measurements: Array<Measurements>,
     note: Array<Note>,
     image: string
 }

@@ -12,7 +12,7 @@ export class RiverDetailsService {
   constructor(private http: HttpClient) { }
 
   getRiverDetails(id: String): Observable<RiverDetails>{
-      return this.http.get<RiverDetails>("/api/admin/rivers/" + id);
+      return this.http.get<RiverDetails>("/api/admin/rivers/site/" + id);
   }
 
   saveRiverNote(note: Note): Observable<Note>{

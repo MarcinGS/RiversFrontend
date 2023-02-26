@@ -1,9 +1,11 @@
+import { Region } from "src/app/modules/region/model/region";
+
 export interface AdminRiverUpdate{
     id: number,
     stationId: number,
     stationName: string,
     riverName: string,
-    regionId: number,
+    region: Region,
     waterLevel: string,
     waterDate: string,
     waterTemp: string | null,

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { Chart, ChartData, registerables } from 'chart.js';
 import { Note } from './model/note';
 import { RiverDetails } from './model/riverDetails';
 import { RiverDetailsService } from './river-details.service';
@@ -15,13 +16,14 @@ export class RiverDetailsComponent implements OnInit {
 
   river!: RiverDetails;
   noteForm!: FormGroup;
-  
+
   constructor(
     private riverDetailsService: RiverDetailsService,
     private router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar) { }
 
+  
   ngOnInit(): void {
     this.getRiverDetails();
     this.noteForm = this.formBuilder.group({

@@ -11,7 +11,7 @@ import { RiverService } from './river.service';
 })
 export class RiverComponent implements OnInit {
   page!: Page<River>;
-
+  
   constructor(private riverService: RiverService) {}
 
   ngOnInit(): void {
@@ -31,4 +31,5 @@ export class RiverComponent implements OnInit {
       .getRivers(page, size)
       .subscribe((page) => (this.page = page));
   }
+
 }

@@ -52,7 +52,7 @@ export class AdminRiverAddComponent implements OnInit {
         stationId: this.riverForm.get('stationId')?.value,
         stationName: this.riverForm.get('stationName')?.value,
         riverName: this.riverForm.get('riverName')?.value,
-        regionId: this.riverForm.get('regionId')?.value,
+        region: this.riverForm.get('region')?.value,
         waterLevel: this.riverForm.get('waterLevel')?.value,
         waterDate: this.riverForm.get('waterDate')?.value,
         waterTemp: this.riverForm.get('waterTemp')?.value,

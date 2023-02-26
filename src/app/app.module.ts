@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,8 +9,10 @@ import { FullpageadminModule } from './layouts/fullpageadmin/fullpageadmin.modul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import localePl from '@angular/common/locales/pl';
+import { registerLocaleData } from '@angular/common';
 
-
+registerLocaleData(localePl);
 @NgModule({
   declarations: [
     AppComponent
@@ -24,7 +26,8 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+  {provide: LOCALE_ID, useValue: 'pl-PL'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
