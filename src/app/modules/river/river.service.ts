@@ -12,7 +12,7 @@ export class RiverService {
 
   getRivers(page: number, size: number): Observable<Page<River>> {
     return this.http.get<Page<River>>(
-      `/api/admin/rivers?page=${page}&size=${size}`
+      `/api/rivers?page=${page}&size=${size}`
     );
   }
 }

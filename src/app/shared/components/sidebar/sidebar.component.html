@@ -1,5 +1,5 @@
 <mat-selection-list [multiple]="false">
-    <div class="option">
+    <div>
         <mat-list-option *ngFor="let region of regions" routerLink="{{'/regions/' + region.name}}">
            {{region.name | titlecase}}
         </mat-list-option>

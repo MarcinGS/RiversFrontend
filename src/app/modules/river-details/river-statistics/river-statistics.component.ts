@@ -56,7 +56,7 @@ export class RiverStatisticsComponent implements AfterViewInit {
             x: {
               type: 'time',
               time: {
-                unit: 'hour'
+                unit: 'day'
               }
             }
           }

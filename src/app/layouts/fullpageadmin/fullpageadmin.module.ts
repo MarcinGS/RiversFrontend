@@ -26,7 +26,7 @@ import { AdminRegionFormComponent } from 'src/app/modules/admin/admin-region/adm
     AdminConfirmDialogComponent,
     AdminRegionComponent,
     AdminRegionUpdateComponent,
-    AdminRegionFormComponent,
+    AdminRegionFormComponent
   ],
   imports: [
     CommonModule,
