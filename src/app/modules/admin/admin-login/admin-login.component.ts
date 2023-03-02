@@ -32,7 +32,10 @@ loginError = false;
         .subscribe({
           next: (response) => {
             this.loginError = false;
-            this.jwtService.setToken(response.token);
+            if(response.adminAccess){
+              this.jwtService.setToken(response.token);
+              this.jwtService.setAdminAccess(true);
+            }
             this.router.navigate(["/admin"]);
           },
           error: () => this.loginError = true

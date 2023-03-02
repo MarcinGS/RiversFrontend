@@ -10,6 +10,7 @@ import { RegionComponent } from 'src/app/modules/region/region.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from 'src/app/modules/user-list/user-list.component';
 import { RiverStatisticsComponent } from 'src/app/modules/river-details/river-statistics/river-statistics.component';
+import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 
 
 
@@ -21,6 +22,7 @@ import { RiverStatisticsComponent } from 'src/app/modules/river-details/river-st
     RegionComponent,
     UserListComponent,
     RiverStatisticsComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

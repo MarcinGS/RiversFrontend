@@ -14,6 +14,7 @@ import { AdminComponent } from './modules/admin/admin.component';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 import { RegionComponent } from './modules/region/region.component';
 import { RiverDetailsComponent } from './modules/river-details/river-details.component';
 import { RiverComponent } from './modules/river/river.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'rivers/:id', component: RiverDetailsComponent },
       { path: 'regions/:name', component: RegionComponent },
       { path: 'userlist', component: UserListComponent },
+      { path: 'profile', component: ProfileComponent }
     ],
   },
   {

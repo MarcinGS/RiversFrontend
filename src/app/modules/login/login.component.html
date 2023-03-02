@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div fxLayout="row">
+    <div fxFlex>
+        <div class="loginForm">
+            <h2 >Logowanie</h2>
+        </div>
+        <form [formGroup]="loginForm" fxLayout="column" class="loginForm" (submit)="login()">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="username" placeholder="Podaj swój email">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Hasło</mat-label>
+                <input type="password" matInput formControlName="password">
+            </mat-form-field>
+            <button mat-flat-button color="primary">Zaloguj</button>
+            <div *ngIf="loginError" class="loginError">Niepoprawne dane logowania!</div>
+        </form>
+    </div>
+    <div fxFlex>
+        <div class="loginForm">
+            <h2>Rejestracja</h2>
+        </div>
+    
+    <form [formGroup]="registerForm" fxLayout="column" class="loginForm" (submit)="register()">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="username" placeholder="Podaj swój email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Hasło</mat-label>
+            <input type="password" matInput formControlName="password">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Powtórz hasło</mat-label>
+            <input type="password" matInput formControlName="repeatPassword">
+        </mat-form-field>
+        <button mat-flat-button color="primary">Rejestracja</button>
+        <div *ngIf="registerError" class="loginError">{{registerErrorMessage}}</div>
+    </form>
+</div>
+</div>

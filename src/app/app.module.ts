@@ -14,6 +14,7 @@ import { registerLocaleData } from '@angular/common';
 import { FullpageadminclearModule } from './layouts/fullpageadminclear/fullpageadminclear.module';
 import { JwtInterceptor } from './modules/admin/common/interceptor/jwt.interceptor';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 registerLocaleData(localePl);
 @NgModule({
