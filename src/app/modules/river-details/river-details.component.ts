@@ -1,8 +1,13 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTable } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Chart, ChartData, registerables } from 'chart.js';
+import { startWith, switchMap } from 'rxjs';
+import { Measurements } from '../common/model/measurements';
+import { Page } from '../common/model/page';
 import { JwtService } from '../common/service/jwt.service';
 import { Note } from './model/note';
 import { RiverDetails } from './model/riverDetails';
@@ -16,9 +21,20 @@ import { RiverDetailsService } from './river-details.service';
 export class RiverDetailsComponent implements OnInit {
 
   river!: RiverDetails;
+  measurements!: Page<Measurements>;
   noteForm!: FormGroup;
   isLoggedIn = false;
 
+  displayedColumns: string[] = [
+    'waterLevel',
+    'waterDate',
+    'waterTemp',
+    'tempDate',
+    'iceLevel',
+    'iceDate',
+    'growLevel',
+    'growDate'
+  ];
   constructor(
     private riverDetailsService: RiverDetailsService,
     private router: ActivatedRoute,
@@ -32,14 +48,17 @@ export class RiverDetailsComponent implements OnInit {
     this.noteForm = this.formBuilder.group({
       topic: ["", [Validators.required, Validators.min(2)]],
       content: ["", [Validators.required, Validators.min(4)]]
-    });
+      });
     this.isLoggedIn = this.jwtservice.isLoggedIn();
   }
 
   getRiverDetails(){
     let id = this.router.snapshot.params['id'];
       this.riverDetailsService.getRiverDetails(id)
-      .subscribe(river => this.river = river);
+      .subscribe(river => {
+        this.river = river;
+      });    
+      this.getRiverMeasurements(0,5,id);
   }
 
   submit(){
@@ -54,6 +73,15 @@ export class RiverDetailsComponent implements OnInit {
       });
       
     }
+  }
+
+  onPageEvent($event: PageEvent, id: number) {
+    this.getRiverMeasurements($event.pageIndex, $event.pageSize, id);
+  }
+
+  getRiverMeasurements(pageIndex: number, pageSize: number, id: number) {
+    this.riverDetailsService.getMeasurements(pageIndex, pageSize, id)
+      .subscribe(m => this.measurements = m);
   }
 
   get topic(){

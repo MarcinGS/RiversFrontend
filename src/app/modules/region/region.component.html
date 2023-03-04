@@ -17,7 +17,7 @@
     </div>
     <mat-card-actions align="end" fxLayoutGap="10">
       <button mat-flat-button color="primary" routerLink="{{'/rivers/' + river.id}}">Pokaż</button>
-      <button mat-flat-button color="accent">Dodaj do listy</button>
+      <button mat-flat-button color="accent"routerLink="/userlist" [queryParams]="{riverId: river?.id}">Dodaj do listy</button>
     </mat-card-actions>
   </mat-card>
   <mat-paginator *ngIf="regionRivers?.rivers && regionRivers.rivers.totalElements > 0" 

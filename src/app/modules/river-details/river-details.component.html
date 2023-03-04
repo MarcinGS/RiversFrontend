@@ -1,3 +1,4 @@
+
 <mat-card>
     <div fxLayout="row">
         <div fxFlex="20">
@@ -5,12 +6,12 @@
                 <!-- zacznie działać po dodaniu relacji -->
                 <img *ngIf="!river?.image" mat-card-md-image src="/assets/image-placeholder.png">
                 <img *ngIf="river?.image" mat-card-md-image src="{{'/api/data/riverImage/'+river.image}}">
-            </div> 
+            </div>
         </div>
         <div fxFlex="80">
             <mat-tab-group>
                 <mat-tab label="Lokalizacja">
-                    <div> 
+                    <div>
                         <mat-card-header>
                             <div fxLayout="row" fxFlex>
                                 <div fxFlex="25">
@@ -34,39 +35,42 @@
                     </div>
                 </mat-tab>
                 <mat-tab label="Pomiary">
-                    <div>
-                        <mat-card-content>
-                            <div *ngFor="let riv of river?.measurements">
-                            <div fxLayout="row">
-                                <div fxFlex>
-                                    <h4>Poziom wody:</h4>
-                                    <mat-card-title>{{riv.waterLevel}}</mat-card-title>
-                                    <mat-card-subtitle>{{riv.waterDate | date:'EEEE, d MMMM y h:mm' |titlecase}} </mat-card-subtitle>
-                                </div>
-                                <div fxFlex>
-                                    <h4>Temperatura wody:</h4>
-                                    <mat-card-title>{{riv.waterTemp}}</mat-card-title>
-                                    <mat-card-subtitle>{{riv.tempDate | date:'EEEE, d MMMM y h:mm' |titlecase}}</mat-card-subtitle>
-                                </div>
-                                <div fxFlex>
-                                    <h4>Zjawisko lodowe:</h4>
-                                    <mat-card-title>{{riv.iceLevel}}</mat-card-title>
-                                    <mat-card-subtitle>{{riv.iceDate | date:'EEEE, d MMMM y h:mm' |titlecase}}</mat-card-subtitle>
-                                </div>
-                                <div fxFlex>
-                                    <h4>Zjawisko zamarzania:</h4>
-                                    <mat-card-title>{{riv.growLevel}}</mat-card-title>
-                                    <mat-card-subtitle>{{riv.growDate | date:'EEEE, d MMMM y h:mm' |titlecase}}</mat-card-subtitle>
-                                </div>
+                    <mat-card *ngFor="let riv of measurements?.content">
+                        <div fxLayout="row">
+                            <div fxFlex>
+                                <h4>Poziom wody:</h4>
+                                <mat-card-title>{{riv.waterLevel}}</mat-card-title>
+                                <mat-card-subtitle>{{riv.waterDate | date:'EEEE, d MMMM y h:mm' |titlecase}}
+                                </mat-card-subtitle>
+                            </div>
+                            <div fxFlex>
+                                <h4>Temperatura wody:</h4>
+                                <mat-card-title>{{riv.waterTemp}}</mat-card-title>
+                                <mat-card-subtitle>{{riv.tempDate | date:'EEEE, d MMMM y h:mm'
+                                    |titlecase}}</mat-card-subtitle>
+                            </div>
+                            <div fxFlex>
+                                <h4>Zjawisko lodowe:</h4>
+                                <mat-card-title>{{riv.iceLevel}}</mat-card-title>
+                                <mat-card-subtitle>{{riv.iceDate | date:'EEEE, d MMMM y h:mm'
+                                    |titlecase}}</mat-card-subtitle>
+                            </div>
+                            <div fxFlex>
+                                <h4>Zjawisko zamarzania:</h4>
+                                <mat-card-title>{{riv.growLevel}}</mat-card-title>
+                                <mat-card-subtitle>{{riv.growDate | date:'EEEE, d MMMM y h:mm'
+                                    |titlecase}}</mat-card-subtitle>
                             </div>
                         </div>
-                        </mat-card-content>
-                    </div>
+                    </mat-card>
+                    <mat-paginator *ngIf="river && river.measurements.length > 0" [length]="river.measurements.length" [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page" (page)="onPageEvent($event, river.id)">
+                    </mat-paginator>
                 </mat-tab>
-                <mat-tab label="Wykres">
+                <mat-tab label="Wykres"> 
                     <div>
                         <mat-card-content>
-                           <app-river-statistics [river]="river"></app-river-statistics>
+                            <app-river-statistics [river]="river"></app-river-statistics>
                         </mat-card-content>
                     </div>
                 </mat-tab>

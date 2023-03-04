@@ -22,4 +22,4 @@ export class SidebarComponent implements OnInit {
       .subscribe(regions => this.regions = regions);
   }
 
-}
+} 

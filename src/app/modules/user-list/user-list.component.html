@@ -18,7 +18,7 @@
     </div>
   </div>
   <mat-card-actions align="end" fxLayoutGap="10">
-    <button mat-flat-button color="primary" routerLink="{{'/rivers/' + river.id}}">Pokaż</button>
+    <button mat-flat-button color="primary" routerLink="{{'/rivers/' + river.river.id}}">Pokaż</button>
     <button mat-flat-button color="warn" (click)="deleteRiver(river.id)">Usuń</button>
   </mat-card-actions>
 </mat-card>
