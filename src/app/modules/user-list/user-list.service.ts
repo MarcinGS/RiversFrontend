@@ -11,12 +11,12 @@ export class UserListService {
   
   constructor(private http: HttpClient) { }
   
-  getUserList(id: number): Observable<UserList>{
-    return this.http.get<UserList>("/api/userlist/" + id);
+  getUserList(): Observable<UserList>{
+    return this.http.get<UserList>("/api/userlist/");
   }
   
-  addToUserList(userListId: number, riverId: any ): Observable<UserList>{
-    return this.http.put<UserList>("/api/userlist/" + userListId, riverId);
+  addToUserList(riverId: any ): Observable<UserList>{
+    return this.http.put<UserList>("/api/userlist/", riverId);
   }
 
   deleteRiver(userListId: number): Observable<void> {

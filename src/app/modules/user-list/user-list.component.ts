@@ -45,35 +45,34 @@ export class UserListComponent implements OnInit {
   
   
   getUserList(){
-    let userListId = Number(this.cookieService.get("userListId"));
-    if(userListId > 0){
-      this.userListService.getUserList(userListId)
+    //let userListId = Number(this.cookieService.get("userListId"));
+    
+      this.userListService.getUserList()
       .subscribe(userList => {
         this.userList = userList
         this.userListIconservice.userListChanger(userList.items.length)
       });
-    }
   } 
 
   addToUserList(riverId: number){
-    let userListId = Number(this.cookieService.get("userListId"));
-    this.userListService.addToUserList(userListId, {riverId: riverId})
+    //let userListId = Number(this.cookieService.get("userListId"));
+    this.userListService.addToUserList({riverId: riverId})
     .subscribe(userList => {
       this.userList = userList;
       this.userListIconservice.userListChanger(userList.items.length)
       //Kasuje cookie
-      this.cookieService.delete("userListId");
+      //this.cookieService.delete("userListId");
       //Ustawia cookie
-      this.cookieService.set("userListId", userList.id.toString(), this.expireDays(3));
+      //this.cookieService.set("userListId", userList.id.toString(), this.expireDays(3));
       //Przekierowuje do listy
-      this.router.navigate(["/userlist"]);
+      //this.router.navigate(["/userlist"]);
     });
     
   }
   
-  expireDays(days: number): Date {
-    return new Date(Date.now() + days * 24 * 60 * 60 * 1000);
-  }
+  // expireDays(days: number): Date {
+  //   return new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+  // }
   
   deleteRiver(riverId: number) {
    this.userListService.deleteRiver(riverId)

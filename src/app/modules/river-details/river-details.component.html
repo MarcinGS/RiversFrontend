@@ -70,7 +70,7 @@
                         </mat-card-content>
                     </div>
                 </mat-tab>
-                <mat-tab label="Notatki">
+                <mat-tab label="Notatki" [disabled]="!isLoggedIn">
                     <div>
                         <h4>Notatki</h4>
                         <div>

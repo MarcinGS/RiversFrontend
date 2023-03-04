@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Page } from 'src/app/modules/common/model/page';
 import { River } from '../common/model/river';
+import { JwtService } from '../common/service/jwt.service';
 import { RiverService } from './river.service';
 
 @Component({
@@ -11,11 +12,14 @@ import { RiverService } from './river.service';
 })
 export class RiverComponent implements OnInit {
   page!: Page<River>;
+  isLoggedIn = false;
   
-  constructor(private riverService: RiverService) {}
+  constructor(private riverService: RiverService,
+    private jwtService: JwtService) {}
 
   ngOnInit(): void {
     this.getRivers();
+    this.isLoggedIn = this.jwtService.isLoggedIn();
   }
 
   getRivers() {

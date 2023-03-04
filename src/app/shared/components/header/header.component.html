@@ -4,6 +4,7 @@
             <span class="logo">{{title}} </span> 
     </div>
     <div fxLayoutGap="10" fxLayoutAlign="start center">
+        <div class="loginInf" *ngIf="!isLoggedIn"><a routerLink="/login">Zaloguj się</a> aby móc dodawać swoje rzeki</div>
         <button mat-raised-button color="primary" routerLink="/home">Strona główna</button>
         <button mat-raised-button color="primary" routerLink="/rivers">Rzeki</button>
         <span></span>

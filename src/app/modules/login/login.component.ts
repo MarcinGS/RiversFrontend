@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           this.loginError = false;
         },
         error: (err) => {
-          this.registerError = true;
+          this.loginError = true;
         },
       });
     }
