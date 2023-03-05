@@ -18,6 +18,7 @@ import { ProfileComponent } from './modules/profile/profile.component';
 import { RegionComponent } from './modules/region/region.component';
 import { RiverDetailsComponent } from './modules/river-details/river-details.component';
 import { RiverComponent } from './modules/river/river.component';
+import { ShowRiverComponent } from './modules/river/show-river/show-river.component';
 import { UserListComponent } from './modules/user-list/user-list.component';
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
       { path: 'rivers/:id', component: RiverDetailsComponent },
       { path: 'regions/:name', component: RegionComponent },
       { path: 'userlist', component: UserListComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
+      { path: 'showriver/:id', component: ShowRiverComponent }
     ],
   },
   {

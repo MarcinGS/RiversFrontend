@@ -11,8 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from 'src/app/modules/user-list/user-list.component';
 import { RiverStatisticsComponent } from 'src/app/modules/river-details/river-statistics/river-statistics.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
-
-
+import { UserItemdetailsComponent } from 'src/app/modules/user-list/user-itemdetails/user-itemdetails.component';
+import { ShowRiverComponent } from 'src/app/modules/river/show-river/show-river.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +22,16 @@ import { ProfileComponent } from 'src/app/modules/profile/profile.component';
     RegionComponent,
     UserListComponent,
     RiverStatisticsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserItemdetailsComponent,
+    ShowRiverComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
     SharedModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
-export class DefaultModule { }
+export class DefaultModule {}

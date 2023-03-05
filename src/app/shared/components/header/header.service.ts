@@ -9,7 +9,7 @@ export class HeaderService {
 
   constructor(private http: HttpClient) { }
 
-  getCountUserListItems(userListId: number): Observable<Number>{
-    return this.http.get<Number>("/api/userListItems/count/" + userListId)
+  getCountUserListItems(): Observable<Number>{
+    return this.http.get<Number>("/api/userlistitems/count/");
   }
 }

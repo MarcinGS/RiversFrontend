@@ -36,4 +36,8 @@ export class JwtService {
   public getAdminAccess(): boolean{
     return this.adminAccess;
   }
+
+  public logout(): void{
+    localStorage.removeItem("token");
+  }
 }

@@ -13,7 +13,8 @@ export class JwtInterceptor implements HttpInterceptor{
        if(token && (
         req.url.startsWith("/api/admin")
         || req.url.startsWith("/api/userlist")
-        || req.url.startsWith("/api/profile")))
+        || req.url.startsWith("/api/userlistitems")
+        || req.url.startsWith("/api/note")))
         {
         req = req.clone({
             headers: req.headers.set("Authorization", "Bearer " + token)

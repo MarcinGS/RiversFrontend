@@ -20,7 +20,7 @@ export class UserListService {
   }
 
   deleteRiver(userListId: number): Observable<void> {
-    return this.http.delete<void>("/api/userListItems/" + userListId);
+    return this.http.delete<void>("/api/userlistitems/" + userListId);
   }
 } 
 

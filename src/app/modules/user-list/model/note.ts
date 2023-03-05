@@ -1,5 +1,6 @@
 export interface Note{
-    riverId: number,
+    id: number,
+    userListItemId: number,
     topic: string,
     content: string 
 }
