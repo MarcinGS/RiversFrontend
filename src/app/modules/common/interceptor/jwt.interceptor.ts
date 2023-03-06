@@ -14,7 +14,8 @@ export class JwtInterceptor implements HttpInterceptor{
         req.url.startsWith("/api/admin")
         || req.url.startsWith("/api/userlist")
         || req.url.startsWith("/api/userlistitems")
-        || req.url.startsWith("/api/note")))
+        || req.url.startsWith("/api/note")
+        || req.url.startsWith("/api/username")))
         {
         req = req.clone({
             headers: req.headers.set("Authorization", "Bearer " + token)
