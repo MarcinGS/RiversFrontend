@@ -13,6 +13,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
 import {MatBadgeModule} from '@angular/material/badge'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [],
@@ -30,7 +32,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressBarModule
   ],
   exports: [
     MatIconModule,
@@ -45,7 +48,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { } 

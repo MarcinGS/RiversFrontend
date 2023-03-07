@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from './admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  isComplited = false;
+
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+  }
+
+  update(): void{
+    this.isComplited = true;
+    this.adminService.update()
+    .subscribe(() => {
+      setTimeout(() => this.isComplited = false, 3000);
+    });
   }
 
 }

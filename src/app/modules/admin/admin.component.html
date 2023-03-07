@@ -1,1 +1,13 @@
-<p>admin works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>Aktualizacja danych pomiarowych</mat-card-subtitle>
+        <mat-card-title>Naciśnij przycisk aby wymusić pobranie danych od dostawcy i zaktualizowanie bazy
+            danych.</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="update-button">
+        <button mat-raised-button color="primary" (click)="update()">Aktualizuj</button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" *ngIf="isComplited"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
