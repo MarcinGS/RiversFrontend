@@ -2,10 +2,10 @@
 <mat-card *ngFor="let river of page?.content">
   <div flexLayout="row">
     <div flexLayout="column" fxFlex>
-      <mat-card-title><a routerLink="{{'/rivers/' + river.stationId}}">{{river.riverName}}</a></mat-card-title>
+      <mat-card-title><a routerLink="{{'/showriver/' + river.id}}">{{river.riverName}}</a></mat-card-title>
       <mat-card-subtitle>{{river?.region?.name| titlecase}}</mat-card-subtitle>
       <div flexLayout="row">
-        <a routerLink="{{'/rivers/' + river.stationId}}">
+        <a routerLink="{{'/showriver/' + river.id}}">
           <img *ngIf="!river?.image" src="../../../assets/image-placeholder.png" mat-card-sm-image class="riverImage">
           <img *ngIf="river?.image" src="{{'/api/data/riverImage/'+river?.image}}" mat-card-sm-image class="riverImage">
         </a>

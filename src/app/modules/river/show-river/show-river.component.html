@@ -4,7 +4,7 @@
             <div>
                 <!-- zacznie działać po dodaniu relacji -->
                 <img *ngIf="!river?.image" mat-card-md-image src="/assets/image-placeholder.png">
-                <img *ngIf="river?.image" mat-card-md-image src="{{'/api/data/riverImage/'+river.image}}">
+                <img *ngIf="river?.image" mat-card-md-image src="{{'/api/data/riverImage/'+river.image}}" class="image">
             </div>
         </div>
         <div fxFlex="80">
