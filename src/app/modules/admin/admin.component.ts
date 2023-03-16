@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   update(): void{

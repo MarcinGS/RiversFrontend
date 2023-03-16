@@ -10,7 +10,6 @@ import { RegionComponent } from 'src/app/modules/region/region.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from 'src/app/modules/user-list/user-list.component';
 import { RiverStatisticsComponent } from 'src/app/modules/river-details/river-statistics/river-statistics.component';
-import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { UserItemdetailsComponent } from 'src/app/modules/user-list/user-itemdetails/user-itemdetails.component';
 import { ShowRiverComponent } from 'src/app/modules/river/show-river/show-river.component';
 
@@ -22,7 +21,6 @@ import { ShowRiverComponent } from 'src/app/modules/river/show-river/show-river.
     RegionComponent,
     UserListComponent,
     RiverStatisticsComponent,
-    ProfileComponent,
     UserItemdetailsComponent,
     ShowRiverComponent,
   ],

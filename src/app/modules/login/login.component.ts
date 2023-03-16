@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginError = false;
   registerError = false;
   registerErrorMessage = '';
-  private readonly REDIRECT_ROUTE = '/profile';
+  private readonly REDIRECT_ROUTE = "/rivers";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,9 +25,6 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.jwtService.isLoggedIn()) {
-      this.router.navigate([this.REDIRECT_ROUTE]);
-    }
 
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.email]],
