@@ -13,6 +13,9 @@
 </mat-card>
 <mat-card>
     <mat-card-header *ngIf="statistics">
+        <mat-card-title>Statystyki:</mat-card-title>
+        <mat-card-subtitle>Liczba rzek w bazie danych: <strong>{{statistics.riverCount}}</strong> pozycji.</mat-card-subtitle>
         <mat-card-subtitle>Liczba pomiarów w bazie danych: <strong>{{statistics.measurementCount}}</strong> pozycji.</mat-card-subtitle>
+        <mat-card-subtitle>Liczba użytkowników w bazie danych: <strong>{{statistics.userCount}}</strong></mat-card-subtitle>
     </mat-card-header>
 </mat-card>

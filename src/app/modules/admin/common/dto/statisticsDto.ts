@@ -1,3 +1,5 @@
 export interface StatisticsDto{
-    measurementCount: number
+    measurementCount: number,
+    userCount: number,
+    riverCount: number
 }
