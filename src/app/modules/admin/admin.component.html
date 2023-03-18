@@ -11,3 +11,8 @@
         <mat-progress-bar mode="indeterminate" *ngIf="isComplited"></mat-progress-bar>
     </mat-card-footer>
 </mat-card>
+<mat-card>
+    <mat-card-header *ngIf="statistics">
+        <mat-card-subtitle>Liczba pomiarów w bazie danych: <strong>{{statistics.measurementCount}}</strong> pozycji.</mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
