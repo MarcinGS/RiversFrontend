@@ -24,9 +24,20 @@ export class RiverStatisticsComponent implements AfterViewInit {
      label: 'Poziom wody',
      data: [],
      fill: false,
-     borderColor: 'rgb(75, 192, 192)',
-     tension: 0.1
-    }]
+     borderColor: '#673ab7',
+     tension: 0.1,
+     order: 1,
+     yAxisID: 'y'
+    },
+    {
+      label: 'Temperatura wody',
+      data: [],
+      fill: false,
+      borderColor: '#ffd740',
+      tension: 0.1,
+      order: 0,
+      yAxisID: 'y1'
+     }]
     }as ChartData;
 
   constructor() {
@@ -42,12 +53,14 @@ export class RiverStatisticsComponent implements AfterViewInit {
   setData() {
     let levels = this.river.measurements.map(r =>r.waterLevel);
     this.data.datasets[0].data = levels;
+    let temperature = this.river.measurements.map(r =>r.waterTemp);
+    this.data.datasets[1].data = temperature;
     let dats = this.river.measurements.map(r => r.waterDate);
     this.data.labels = dats;
    }
 
   
-  setupChart() {
+   setupChart() {
     this.chart = new Chart(this.stats.nativeElement, {
         type: 'line',
         data: this.data,
@@ -58,10 +71,23 @@ export class RiverStatisticsComponent implements AfterViewInit {
               time: {
                 unit: 'day'
               }
-            }
+            },
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+            
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              grid: {
+                drawOnChartArea: false, 
+              },
           }
         }
-      });
+      }});
     }
   }
 

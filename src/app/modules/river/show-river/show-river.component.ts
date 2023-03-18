@@ -29,7 +29,7 @@ export class ShowRiverComponent implements OnInit {
     this.showRiverService.getRiverDetails(id).subscribe((river) => {
       this.river = river;
     });
-    this.getRiverMeasurements(0, 5, id);
+    this.getRiverMeasurements(0, 3, id);
   }
 
   

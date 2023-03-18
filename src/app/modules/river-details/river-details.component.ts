@@ -49,7 +49,7 @@ export class RiverDetailsComponent implements OnInit {
     this.riverDetailsService.getRiverDetails(id).subscribe((river) => {
       this.river = river;
     });
-    this.getRiverMeasurements(0, 5, id);
+    this.getRiverMeasurements(0, 3, id);
   }
 
   onPageEvent($event: PageEvent, id: number) {
