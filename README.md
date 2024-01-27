@@ -30,7 +30,45 @@ również informacje, że aby móc korzystać z własnej listy musimy się zalog
 
 Po przejściu do zakładki rzek bez zalogowania możemy przeglądać i zawężać pozycje do województw klikając na nazwy po lewej stronie okna. 
 
-![image](https://github.com/MarcinGS/RiversFrontend/assets/48533024/02dc41f2-417e-4fe0-8491-51b97e7ebec0)
+![Lista rzek](https://github.com/MarcinGS/RiversFrontend/assets/48533024/02dc41f2-417e-4fe0-8491-51b97e7ebec0)
+
+Po kliknięciu w przycisk Pokaż aplikacja przeniesie nas do widoku szczegółów. W widoku szczegółów bez zalogowania mamy dostępne tylko trzy zakładki.
+- Lokalizacja
+- Pomiary
+- Wykres
+
+Pierwsza prezentuje ogólne dane identyfikacyjne.
+Druga pomiary i ich daty podzielone na strony. Zakres stron z danymi można konfigurować za pomocą stronicowania w dolnej prawej części okna.
+Trzecia zakładka prezentuje pomiary na wykresie liniowym.
+
+![Lista pomiarów](https://github.com/MarcinGS/RiversFrontend/assets/48533024/3664031b-f136-49b3-b4c5-b02caef90c8c)
+
+![Wykres liniowy](https://github.com/MarcinGS/RiversFrontend/assets/48533024/6c034a0b-2f07-4fd5-9cea-c17423250885)
+
+Aby otrzymać więcej możliwości należy kliknąć przycisk **Logowanie**.
+
+![Logowanie](https://github.com/MarcinGS/RiversFrontend/assets/48533024/9e87642b-d930-414c-8b3c-3fbfc83d809f)
+
+W tym miejscu można się zalogować bądź zarejestrować swoje konto. Po poprawnym przejściu przez ten proces zostajemy przekierowani na stronę z listą rzek.
+
+![Lista rzek log](https://github.com/MarcinGS/RiversFrontend/assets/48533024/1f782913-794e-4d0b-bdfa-db297bebe5a9)
+
+Po zalogowaniu widzimy, że na stronie głównej umieszczona jest informacja o nazwie konta, na którym jesteśmy aktualnie zalogowani.
+Teraz na stronie rzek możemy zauważyć, że mamy dostępny żółty przycisk **Dodaj do listy**. Kliknięcie tego przycisku doda wybraną rzekę do listy i przeniesie nas na nią.
+
+![Lista rzek log](https://github.com/MarcinGS/RiversFrontend/assets/48533024/9f28ec0b-b210-4400-bce3-f6f02d2e8a50)
+
+Możemy tutaj usunąć rzekę z listy bądź przejść do jej szczegółów.
+W szczegółach rzeki oprócz poprzednich zakładek pojawia się nam nowa o nazwie Notatki.
+Możemy w niej dodawać i usuwać własne notatki.
+Można również zauważyć informacje o ilości rzek na liście prywatnej użytkownika umieszczonej w prawym górnym rogu aplikacji przy ikonie listy.
+
+![Notatki](https://github.com/MarcinGS/RiversFrontend/assets/48533024/ac48e419-16f8-4377-b0a4-3152a3730999)
+
+
+
+
+
 
 <br>
 <br>
