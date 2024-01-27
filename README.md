@@ -2,9 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
-## Development server
+## Development server (EN)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install` for install all dependencies. After that run `npm start`, it's run application with settings from `proxy.config.json` file. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Uruchomienie projektu (PL)
+Wpisz i uruchom komende `npm install` aby zainstalować wszystkie potrzebne zależności. Następnie wpisz `npm start`. Komenda ta uruchomi aplikację z ustawieniami z plikieu `proxy.config.json`. Przejdź do `http://localhost:4200/`. Aplikacja zostanie automatycznie załadowana ponownie, jeśli zmienisz którykolwiek z plików źródłowych.
 
 ## Code scaffolding
 
