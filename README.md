@@ -3,18 +3,18 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
 ## Important information (EN)
-For the application to work properly, you need to run it's ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. If you want to use the ***[DOCKER](https://github.com/MarcinGS/RiversDocker)*** application, go to the another repository.
+For the application to work properly, you need to run it's ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. If you want to use the ***DOCKER*** application, go to the another ***[repository](https://github.com/MarcinGS/RiversDocker)*** .
 
 ## Ważne informacje (PL)
-Aby aplikacja działała poprawnie, musisz uruchomić jej ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. Jeżeli chcesz skorzystać z aplikacji ***[DOCKER](https://github.com/MarcinGS/RiversDocker)*** przejdź do innego repozytorium.
+Aby aplikacja działała poprawnie, musisz uruchomić jej ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. Jeżeli chcesz skorzystać z aplikacji ***DOCKER*** przejdź do innego ***[repozytorium](https://github.com/MarcinGS/RiversDocker)***.
 
 ## Project launching (EN)
-***Before launching, you need to have Node.js and Angular CLI installed on the machine to run the project.***
+Before launching, you need to have ***Node.js*** and ***Angular CLI*** installed on the machine to run the project.
 
 Run `npm install` for install all dependencies. After that run `npm start`, it's run application with settings from `proxy.config.json` file. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Uruchomienie projektu (PL)
-***Przed uruchomieniem musisz mieć zainstalowane Node.js oraz Angular CLI aby uruchomić projekt.***
+Przed uruchomieniem musisz mieć zainstalowane ***Node.js*** oraz ***Angular CLI*** aby uruchomić projekt.
 
 Wpisz i uruchom komende `npm install` aby zainstalować wszystkie potrzebne zależności. Następnie wpisz `npm start`. Komenda ta uruchomi aplikację z ustawieniami z plikieu `proxy.config.json`. Przejdź do `http://localhost:4200/`. Aplikacja zostanie automatycznie załadowana ponownie, jeśli zmienisz którykolwiek z plików źródłowych.
 
@@ -32,7 +32,7 @@ Po przejściu do zakładki rzek bez zalogowania możemy przeglądać i zawę�
 
 ![Lista rzek](https://github.com/MarcinGS/RiversFrontend/assets/48533024/02dc41f2-417e-4fe0-8491-51b97e7ebec0)
 
-Po kliknięciu w przycisk Pokaż aplikacja przeniesie nas do widoku szczegółów. W widoku szczegółów bez zalogowania mamy dostępne tylko trzy zakładki.
+Po kliknięciu w przycisk **Pokaż** aplikacja przeniesie nas do widoku szczegółów. W widoku szczegółów bez zalogowania mamy dostępne tylko trzy zakładki.
 - Lokalizacja
 - Pomiary
 - Wykres
