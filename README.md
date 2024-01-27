@@ -19,6 +19,20 @@ Run `npm install` for install all dependencies. After that run `npm start`, it's
 Wpisz i uruchom komende `npm install` aby zainstalować wszystkie potrzebne zależności. Następnie wpisz `npm start`. Komenda ta uruchomi aplikację z ustawieniami z plikieu `proxy.config.json`. Przejdź do `http://localhost:4200/`. Aplikacja zostanie automatycznie załadowana ponownie, jeśli zmienisz którykolwiek z plików źródłowych.
 
 <br>
+
+# Funkcjonalność oprogramowania
+Przy przejściu na stronę, która udostępnia stworzoną aplikacje uruchomiona zostaje
+strona główna. Posiada ona przyciski nawigacyjne oraz informacje o nazwie zalogowanego
+konta. Z tego miejsca możemy przejść do zakładki rzek bądź strony logowania. Widzimy
+również informacje, że aby móc korzystać z własnej listy musimy się zalogować.
+
+![Strona główna](https://github.com/MarcinGS/RiversFrontend/assets/48533024/aac27d1d-9e9f-40ab-adea-cf6d148226d0)
+
+Po przejściu do zakładki rzek bez zalogowania możemy przeglądać i zawężać pozycje do województw klikając na nazwy po lewej stronie okna. 
+
+![image](https://github.com/MarcinGS/RiversFrontend/assets/48533024/02dc41f2-417e-4fe0-8491-51b97e7ebec0)
+
+<br>
 <br>
 <br>
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
