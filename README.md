@@ -8,7 +8,7 @@ For the application to work properly, you need to run it's ***[BACKEND](https://
 ## Ważne informacje (PL)
 Aby aplikacja działała poprawnie, musisz uruchomić jej ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. Jeżeli chcesz skorzystać z aplikacji ***[DOCKER](https://github.com/MarcinGS/RiversDocker)*** przejdź do innego repozytorium.
 
-## Project launch (EN)
+## Project launching (EN)
 ***Before launching, you need to have Node.js and Angular CLI installed on the machine to run the project.***
 
 Run `npm install` for install all dependencies. After that run `npm start`, it's run application with settings from `proxy.config.json` file. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
