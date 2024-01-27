@@ -1,11 +1,11 @@
 # RiversLevelMonitor
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+>This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9 and [Node.js](https://nodejs.org/en) 16.xx.xx version.
 
-## Important information (EN)
+## :warning: Important information (EN)
 For the application to work properly, you need to run it's ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. If you want to use the ***DOCKER*** application, go to the another ***[repository](https://github.com/MarcinGS/RiversDocker)*** .
 
-## Ważne informacje (PL)
+## :warning: Ważne informacje (PL)
 Aby aplikacja działała poprawnie, musisz uruchomić jej ***[BACKEND](https://github.com/MarcinGS/RiversBackend)***. Jeżeli chcesz skorzystać z aplikacji ***DOCKER*** przejdź do innego ***[repozytorium](https://github.com/MarcinGS/RiversDocker)***.
 
 ## Project launching (EN)
