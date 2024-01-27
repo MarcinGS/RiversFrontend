@@ -19,12 +19,14 @@ Aby aplikacja działała poprawnie, musisz uruchomić jej ***[BACKEND](https://g
 ## Project launching (EN)
 Before launching, you need to have ***Node.js*** and ***Angular CLI*** installed on the machine to run the project.
 
-Run `npm install` for install all dependencies. After that run `npm start`, it's run application with settings from `proxy.config.json` file. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Type and run the `npm install` command to install all the necessary dependencies.
+Then type `npm start`. This command will start the application with the settings from the `proxy.config.json` file. Go to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Uruchomienie projektu (PL)
-Przed uruchomieniem musisz mieć zainstalowane ***Node.js*** oraz ***Angular CLI*** aby uruchomić projekt.
+W celu uruchomia projekt musisz posiadać zainstalowane oprogramowanie ***Node.js*** oraz ***Angular CLI*** .
 
-Wpisz i uruchom komende `npm install` aby zainstalować wszystkie potrzebne zależności. Następnie wpisz `npm start`. Komenda ta uruchomi aplikację z ustawieniami z plikieu `proxy.config.json`. Przejdź do `http://localhost:4200/`. Aplikacja zostanie automatycznie załadowana ponownie, jeśli zmienisz którykolwiek z plików źródłowych.
+Wpisz i uruchom komende `npm install` aby zainstalować wszystkie potrzebne zależności.  
+Następnie wpisz `npm start`. Komenda ta uruchomi aplikację z ustawieniami z pliku `proxy.config.json`. Przejdź do `http://localhost:4200/`. Aplikacja zostanie automatycznie załadowana ponownie, jeśli zmienisz którykolwiek z plików źródłowych.
 
 <br>
 
