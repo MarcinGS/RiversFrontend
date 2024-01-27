@@ -51,6 +51,9 @@ Pierwsza prezentuje ogólne dane identyfikacyjne.
 Druga pomiary i ich daty podzielone na strony. Zakres stron z danymi można konfigurować za pomocą stronicowania w dolnej prawej części okna.
 Trzecia zakładka prezentuje pomiary na wykresie liniowym.
 
+> :bulb: Dane pomiarowe aplikacj aktualizowane są automatycznie co 60min.  
+Pobierane są z API udostępnionego przez *Instytut Meteorologii i Gospodarki Wodnej – Państwowy Instytut Badawczy* [IMGW-PIB](https://www.imgw.pl/)
+
 ![Lista pomiarów](https://github.com/MarcinGS/RiversFrontend/assets/48533024/3664031b-f136-49b3-b4c5-b02caef90c8c)
 
 ![Wykres liniowy](https://github.com/MarcinGS/RiversFrontend/assets/48533024/6c034a0b-2f07-4fd5-9cea-c17423250885)
@@ -118,7 +121,4 @@ Zapis pozycji odbywa się po naciśnięciu przycisku **Zapisz**.
 >**Username:** `admin`  
 **Password:** `test`
 
-<br>
-<br>
-<br>
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
