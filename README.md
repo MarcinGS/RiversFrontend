@@ -59,11 +59,44 @@ Teraz na stronie rzek możemy zauważyć, że mamy dostępny żółty przycisk
 ![Lista rzek log](https://github.com/MarcinGS/RiversFrontend/assets/48533024/9f28ec0b-b210-4400-bce3-f6f02d2e8a50)
 
 Możemy tutaj usunąć rzekę z listy bądź przejść do jej szczegółów.
-W szczegółach rzeki oprócz poprzednich zakładek pojawia się nam nowa o nazwie Notatki.
+W szczegółach rzeki oprócz poprzednich zakładek pojawia się nam nowa o nazwie **Notatki**.
 Możemy w niej dodawać i usuwać własne notatki.
 Można również zauważyć informacje o ilości rzek na liście prywatnej użytkownika umieszczonej w prawym górnym rogu aplikacji przy ikonie listy.
 
 ![Notatki](https://github.com/MarcinGS/RiversFrontend/assets/48533024/ac48e419-16f8-4377-b0a4-3152a3730999)
+
+## Część administracyjna
+
+Do części administracyjnej maja dostęp tylko użytkownicy z rolą administratora.
+Przejście tam odbywa się poprzez dopisanie do adresu domeny aplikacji ścieżki `/admin`.
+
+![Admin log](https://github.com/MarcinGS/RiversFrontend/assets/48533024/1a61f8e2-b706-4923-896b-ff5179a04d00)
+
+Po poprawnym podaniu danych logowania jesteśmy przekierowywani do widoku głównego.
+Możemy w tym miejscu wymusić ręczną aktualizacje danych pomiarowych na serwerze.
+Aby to zrobić należy kliknąć przycisk **Aktualizuj** i poczekać do końca pracy sygnalizowanej przez pasek postępu.
+Strona udostępnia również dane statystyczne o ilości danych w bazie i ilości zarejestrowanych kont w systemie.
+
+![Admin panel](https://github.com/MarcinGS/RiversFrontend/assets/48533024/c01cab73-4fa4-4134-acae-dd23b96db40a)
+
+Po przejściu do zakładki rzeki otrzymujemy postronicowaną tabele z listą rzek w bazie danych.
+Z tego miejsca możemy dodawać rzeki klikając przycisk **Dodaj rzekę** w górnej części ekranu.
+
+![Admin rzeki](https://github.com/MarcinGS/RiversFrontend/assets/48533024/1d1f1751-0aba-43b4-9a16-9f75ea6a5632)
+
+Możemy również edytować i usuwać pozycje klikając ikony w kolumnie **Akcje**.
+
+![Dodaj rzeke admin](https://github.com/MarcinGS/RiversFrontend/assets/48533024/fb02d38d-d094-46d4-ae2e-d7284cad7ba2)
+
+![Edytuj rzeke admin](https://github.com/MarcinGS/RiversFrontend/assets/48533024/3812b502-8b16-4ab2-9111-1bcb12326d0a)
+
+Zapis pozycji odbywa się po naciśnięciu przycisku **Zapisz**.
+
+
+
+
+
+
 
 
 
