@@ -7,7 +7,7 @@ import { DefaultModule } from './layouts/default/default.module';
 import { FullpageModule } from './layouts/fullpage/fullpage.module';
 import { FullpageadminModule } from './layouts/fullpageadmin/fullpageadmin.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
 import { FullpageadminclearModule } from './layouts/fullpageadminclear/fullpageadminclear.module';
@@ -18,22 +18,17 @@ import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorize
 
 
 registerLocaleData(localePl);
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    DefaultModule,
-    FullpageModule,
-    FullpageadminModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FullpageadminclearModule
-  ],
-  providers: [ 
-    { provide: LOCALE_ID, useValue: 'pl-PL' },
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    AdminAuthorizeGuard],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        DefaultModule,
+        FullpageModule,
+        FullpageadminModule,
+        BrowserAnimationsModule,
+        FullpageadminclearModule], providers: [
+        { provide: LOCALE_ID, useValue: 'pl-PL' },
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        AdminAuthorizeGuard,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {}
