@@ -28,13 +28,13 @@ export class HeaderComponent implements OnInit {
         this.getUserName();
         this.getCountUserListItems();
         this.userListIconservice.subject
-        .subscribe(count => this.userListCounter = String(count>0 ? count:""));
+        .subscribe(count => this.userListCounter = String(count.valueOf() > 0 ? count:""));
       }
     }
 
   public getCountUserListItems(){
     this.headerService.getCountUserListItems()
-      .subscribe(count => this.userListCounter = String(count>0 ? count : ""));
+      .subscribe(count => this.userListCounter = String(count.valueOf() > 0 ? count : ""));
   }
 
   public logout(){

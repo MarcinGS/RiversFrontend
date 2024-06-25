@@ -1,9 +1,9 @@
 <header  fxLayoutAlign="start center">
-    <div fxFlex fxLayoutAlign="start end" fxLayoutGap="10">
+    <div fxFlex fxLayoutAlign="start end" fxLayoutGap="1rem">
             <mat-icon color="primary" class="logoIcon">water_drop</mat-icon>
             <span class="logo">{{title}} </span> 
     </div>
-    <div fxLayoutGap="10" fxLayoutAlign="start center">
+    <div fxLayoutGap="1rem" fxLayoutAlign="start center">
         <div class="loginInf" *ngIf="!isLoggedIn"><a routerLink="/login">Zaloguj się</a> aby móc dodawać swoje rzeki</div>
         <div class="loginInf" *ngIf="isLoggedIn" >Jesteś zalogowany jako: <div class="username">{{userName?.userName}}</div></div>
         <button mat-raised-button color="primary" routerLink="/home">Strona główna</button>

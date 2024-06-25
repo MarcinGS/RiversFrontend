@@ -3,7 +3,6 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { DefaultComponent } from './default.component';
 import { RiverComponent } from 'src/app/modules/river/river.component';
 import { RouterModule } from '@angular/router';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RiverDetailsComponent } from 'src/app/modules/river-details/river-details.component';
 import { RegionComponent } from 'src/app/modules/region/region.component';
@@ -27,7 +26,6 @@ import { ShowRiverComponent } from 'src/app/modules/river/show-river/show-river.
   imports: [
     CommonModule,
     RouterModule,
-    FlexLayoutModule,
     SharedModule,
     ReactiveFormsModule,
   ],
