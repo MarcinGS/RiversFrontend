@@ -11,7 +11,6 @@ export class SidebarService {
   constructor(private http: HttpClient) { }
 
   getRegions(): Observable<Array<SidebarRegion>>{
-    return this.http.get<Array<SidebarRegion>>("/api/regions");
-     
+   return this.http.get<Array<SidebarRegion>>("/api/regions");
   }
 }
