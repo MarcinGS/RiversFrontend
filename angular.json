@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Rivers-level-monitor:build:production"
+              "buildTarget": "Rivers-level-monitor:build:production"
             },
             "development": {
-              "browserTarget": "Rivers-level-monitor:build:development"
+              "buildTarget": "Rivers-level-monitor:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Rivers-level-monitor:build"
+            "buildTarget": "Rivers-level-monitor:build"
           }
         },
         "test": {
