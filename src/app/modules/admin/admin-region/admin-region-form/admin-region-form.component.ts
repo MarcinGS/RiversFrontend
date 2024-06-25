@@ -49,10 +49,10 @@ import { FormGroup } from '@angular/forms';
   </div>`,
   styles: [
     `
-      .errorMessages {
-        color: red;
-      }
-    `,
+           .errorMessages {
+             color: red;
+           }
+         `,
   ],
 })
 export class AdminRegionFormComponent implements OnInit {

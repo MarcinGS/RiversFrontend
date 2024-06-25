@@ -1,5 +1,5 @@
 <h1>Rzeki</h1>
-<mat-card *ngFor="let river of page?.content">
+<mat-card appearance="outlined" *ngFor="let river of page?.content">
   <div flexLayout="row">
     <div flexLayout="column" fxFlex>
       <mat-card-title><a routerLink="{{'/showriver/' + river.id}}">{{river.riverName}}</a></mat-card-title>

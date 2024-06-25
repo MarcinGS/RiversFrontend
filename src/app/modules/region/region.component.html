@@ -1,4 +1,4 @@
-<mat-card *ngFor="let river of regionRivers?.rivers?.content">
+<mat-card appearance="outlined" *ngFor="let river of regionRivers?.rivers?.content">
     <div flexLayout="row">
       <div flexLayout="column" fxFlex>
         <mat-card-title><a routerLink="{{'/rivers/' + river.stationId}}">{{river.riverName}}</a></mat-card-title>

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card appearance="outlined">
     <div fxLayout="row">
         <div fxFlex="20">
             <div>
@@ -34,7 +34,7 @@
                     </div>
                 </mat-tab>
                 <mat-tab label="Pomiary">
-                    <mat-card *ngFor="let riv of measurements?.content">
+                    <mat-card appearance="outlined" *ngFor="let riv of measurements?.content">
                         <div fxLayout="row">
                             <div fxFlex>
                                 <h4>Poziom wody:</h4>

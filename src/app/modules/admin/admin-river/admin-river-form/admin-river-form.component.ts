@@ -180,10 +180,10 @@ import { FormRegionService } from './form-region.service';
   </div>`,
   styles: [
     `
-      .errorMessages {
-        color: red;
-      }
-    `,
+           .errorMessages {
+             color: red;
+           }
+         `,
   ],
 })
 export class AdminRiverFormComponent implements OnInit {

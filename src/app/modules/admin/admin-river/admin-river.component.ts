@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyTable as MatTable } from '@angular/material/legacy-table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTable } from '@angular/material/table';
 import { delay, startWith, switchMap } from 'rxjs';
 import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { AdminRiverService } from './admin-river.service';

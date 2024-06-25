@@ -6,7 +6,7 @@
   <h1>Przykro nam nie jesteś zalogowany</h1>
   <h2>Nie możesz obserwować rzek</h2>
 </div>
-<mat-card *ngFor="let river of userList?.items">
+<mat-card appearance="outlined" *ngFor="let river of userList?.items">
   <div flexLayout="row">
     <div flexLayout="column" fxFlex>
       <mat-card-title><a routerLink="{{'/rivers/' + river?.river?.stationId}}">{{river?.river?.riverName}}</a></mat-card-title>
